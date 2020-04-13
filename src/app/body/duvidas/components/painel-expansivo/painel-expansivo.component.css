@@ -1,0 +1,117 @@
+*, ::after, ::before {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+
+/* painel expansivo*/
+div.panel{
+    max-width: 60%;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+details{
+    background:#fff;
+    font-size:16px;
+    border-bottom:1px solid #e0e0e0;
+    box-shadow:0 0 2px rgba(0,0,0,0.12),0 2px 4px rgba(0,0,0,0.24);
+    display:flex; 
+}
+
+/* o que yem dentro do painel */
+details div.content{
+    margin-top: -30px;
+    padding:0px 10px 10px 10px;
+}
+
+div.content ul{
+    margin-left: -30px;
+    text-align: center;
+    font-family: 'Unbunto', sans-serif;
+    list-style: none;
+    font-size: 20px;
+}
+
+
+div.content ul li a{
+    color: #2d46b9;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 1s;
+}
+
+div.content ul li a:hover{
+    color: rgb(30,50,100);
+}
+
+div.content ul p a{
+    text-decoration: underline;
+    color: rgba(0,0,0,0.8);
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+/*setinha importada do google icons*/
+/* notem que open é como dizemos a posição que p painel se encontra no momento*/
+details[open] summary:after {
+    color:rgba(0,0,0,0.8);
+    content: "expand_less";
+    font-family: 'Material Icons';
+    
+}
+
+details[open]{
+    margin-top:10px;
+    margin-bottom:10px;
+    border:none;
+    border-radius: 2px;
+}
+
+/* texto que sempre aparece*/
+summary{
+    outline:none;
+    cursor: pointer;
+    padding: 16px 24px;
+    color:#5f4a4a;
+    position: relative;
+    font-size: 15px;
+}
+summary:hover{
+    background:#eeeeee;
+}
+
+/*details é otodo o corpo*/
+details[open] summary:hover{
+    background:none;
+}
+
+summary h3{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: rgba(0,0,0,0.8);
+    font-size: 25px;
+
+}
+summary::-webkit-details-marker {
+    display: none;
+}
+
+/* sobre o icone depois da expanção*/
+summary::after {
+    content: "expand_more";
+    font-family: 'Material Icons';
+    color: #9e9e9e;
+    font-size: 1.5em;
+    padding: 0;
+    text-align: center;
+    margin-top: 0;
+    position: absolute;
+    top: calc(50% - 12px);
+    bottom: 0;
+    right: 0;
+    width: 6%;
+}  
+
+ 
+ time{ color: #757575; opacity: .75; }  

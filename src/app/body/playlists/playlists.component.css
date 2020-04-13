@@ -1,0 +1,22 @@
+.body {
+    background: black;   
+    margin-block-start: -8px;
+    margin-left: -8px;
+    margin-right: -8px;
+    border: 110px solid black;
+}
+
+body {
+    background-color: black;
+}
+
+h1 {
+    Font: 40px Roboto, sans-serif;
+    color: white;
+    text-align: center;
+    float: center;
+    height: 70px;
+    line-height: 70px;
+    letter-spacing: 2px;
+    background-color: rgba(76, 83, 78, 0.479);
+}

@@ -1,0 +1,109 @@
+
+/*corpo do footer*/
+.footer{
+    background-color: rgb(0,0,0);
+    margin-left: -8px;
+    margin-inline-end: -8px;
+    height: 75%;
+}
+
+.logo {
+    margin-left: 100px;
+}
+
+.logo a{
+    color: none;
+    cursor: pointer;
+}
+
+/* estlilização de todas as listas*/
+.footer ul{
+    list-style: none;
+}
+
+/* estlilização de todas as ul's*/
+.footer ul li{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: rgb(255,255,255);
+    margin-bottom: 30px;
+}
+
+/*estilização dos títulos da lista*/
+.footer ul li.titulo{
+    color: rgb(134, 134, 134);
+}
+
+/*estlilização de todos os links da lista*/
+.footer ul li a {
+    cursor: pointer;
+    transition: 1s;
+}
+
+/*estlilização de todos os links da lista após passar o mouse*/
+.footer ul li a:hover{
+    color: rgb(30,215,96);
+}
+
+/*posição de cada lista*/
+
+.footer ul.ul-one {
+    margin-left: 250px;
+    margin-top: -50px;
+}
+
+.footer ul.ul-two {
+    margin-left: 430px;
+    margin-top: -195px;
+}
+
+.footer ul.ul-three {
+    margin-left: 620px;
+    margin-top: -288px;
+}
+
+
+/*rodape*/
+ul.rodape {
+    margin-top: 180px;
+    margin-left: 80px;
+}
+
+ul.rodape li {
+    display: inline;
+    margin-right: 20px;
+}
+
+ul.rodape li a {
+    font-size: 12px;
+    color: rgb(134, 134, 134);
+}
+
+
+
+/*estlilização do rodapé com data e copyright*/
+.direitos {
+    margin-top: -40px;
+    float: right;
+    margin-right: 50px;
+    font-family: 'Roboto', sans-serif;
+    color: rgb(134, 134, 134);
+    
+}
+
+.country p{
+    font-size: 14px;
+    margin-left: 700px;
+    margin-top: -25px;
+}
+
+.country  #Layer_1{
+    margin-left: 726px;
+    margin-top: -30px;
+}
+
+
+.date {
+    font-size: 14px;
+    margin-left: 630px;
+}

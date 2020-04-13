@@ -1,0 +1,14 @@
+ul {
+    margin: 0 auto;
+    width: 50%;
+}
+
+ul li {
+    display: inline;
+    margin-left: 5px;
+}
+
+img {
+    width: 200px;
+    cursor: pointer;
+}
