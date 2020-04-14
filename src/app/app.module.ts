@@ -15,6 +15,8 @@ import { MusicasComponent } from './body/musicas/musicas.component';
 import { ImgPlaylistsComponent } from './body/playlists/components/img-playlists/img-playlists.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxAudioPlayerModule } from 'ngx-audio-player';
+import { CadastroComponent } from './body/cadastro/cadastro.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { NgxAudioPlayerModule } from 'ngx-audio-player';
     NavHeaderComponent,
     FooterComponent,
     DuvidasComponent,
+    CadastroComponent,
     PainelExpansivoComponent,
     CommunityComponent,
     PlaylistsComponent,
@@ -34,7 +37,9 @@ import { NgxAudioPlayerModule } from 'ngx-audio-player';
     AppRoutingModule,
     RouterModule,
     BrowserAnimationsModule,
-    NgxAudioPlayerModule
+    NgxAudioPlayerModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

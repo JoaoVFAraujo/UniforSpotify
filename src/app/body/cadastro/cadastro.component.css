@@ -1,0 +1,143 @@
+.cadastro{
+    margin-block-start: -8px;
+    margin-left: -8px;
+    margin-right: -8px;
+    width: 100%;
+    height: 100%;
+    
+}
+
+
+/*formulario geral*/
+.formulario{
+    padding-top: 10%;
+    margin-left: 35%;
+    margin-right: 20%;
+}
+
+
+.formulario h6{
+    background-color: rgb(252, 127, 127);
+    color: rgba(0,0,0,0.6);
+    font-size: 14px;
+    font-size: 'Roboto', sans-serif;
+    padding: 10px 10px;
+}
+
+/*imputs do tipo texto*/
+.textos input{
+    display: list-item;
+    margin-bottom: 3%;
+    margin-right: 3%;
+    width: 400px;
+    height: 50px;
+    font-size: 'Roboto', sans-serif;
+
+    border-radius: 3px;
+    border-color: #88899B;
+    border: 0.5px solid;
+    color: #88899B;
+    font-size: 16px;
+    
+}
+
+/*div comos inputs de data e o select*/
+.data{
+    margin-bottom: 3%;
+}
+.data label {
+    display: list-item;
+    list-style-type: none;
+    margin-bottom: 1%;
+    color: #88899B;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+.data input{
+    margin-right: 3%;
+    width: 105px;
+    height: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    border-radius: 3px;
+    border-color: #88899B;
+    border: 0.5px solid;
+    color: #88899B;
+}
+
+/*select de data */
+.data select {
+    margin-right: 3%;
+    width: 160px;
+    height: 53px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    text-align: center ;
+    border-radius: 3px;
+    border-color: #88899B;
+    border: 0.5px solid;
+    color: #88899B;
+
+}
+
+.data select:hover {
+    border-color: #96B8F2;
+}
+
+/*input radio*/
+.radio {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #88899B;
+    margin-bottom: 3%;
+}
+
+/*button*/
+.formulario button {
+    margin-left: 20%;
+    margin-top: 3%;
+    height: 45px;
+    width: 250px;
+    background-color: rgb(25, 170, 76);
+    border:none;
+    border-radius: 30px;
+    text-align: center;
+    text-shadow: black;
+    color: rgb(255,255,255);
+    font-family: 'Roboto',sans-serif;
+    font-size: 20px;
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+.formulario button:hover {
+    background-color: rgb(30,215,96);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+/*mensagens de erro*/
+.erro{
+    background-color: rgb(253, 168, 168);
+    border-radius: 5px;
+    width: 95%;
+    color: rgba(0,0,0,0.6);
+    font-size: 'Roboto', sans-serif;
+}
+
+.termos{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #88899B;
+    margin-bottom: 5%;
+}
+
+.termos a{
+    color:rgb(25, 170, 76);
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+}

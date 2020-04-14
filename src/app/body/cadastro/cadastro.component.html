@@ -1,0 +1,102 @@
+<div class='cadastro' >
+   
+     <div class='form'>
+
+        <form class="formulario" validate [formGroup]="formulario" (ngSubmit)='onSubmit()'>
+          
+          <div class="textos">
+            <!--input email-->
+            <div>
+              <input  class="email" name='email' id='email' placeholder="  E-mail"  type="email"  formControlName="email">
+              <!--Os erros-->
+              <div class='erro' *ngIf="!email.pristine && email.errors">
+                <p *ngIf="email.errors.email">* Digite um e-mail válido.</p>
+              </div>
+            </div>
+
+            <!--input confirmação de email-->
+            <input autocomplete="off" class="confirmar" name='confirmar' id='confirmar' placeholder="  Confirmar e-mail"  type="email"  formControlName="confirmar">
+            <div class='erro' *ngIf="!emailsIguais() && mensagem!=''">
+              <p *ngIf="mensagem!=''">{{mensagem}}</p>
+            </div>
+          
+            <!--input senha-->
+            
+              <input  class="senha" name='senha' id='senha' placeholder="  Senha" type="password"  formControlName="senha" >
+              <!--Os erros -->
+              <div class='erro' *ngIf="!senha.pristine && senha.errors">
+                <p *ngIf="senha.errors.required">*Senha é obrigatória.</p>
+                <p *ngIf="senha.errors.minlength">*Senha deve ter no mínimo 6 caracteres.</p>
+              </div>
+          </div>
+
+          <!--Inputs de data de nascimento --> 
+          <div class="data">
+            <label>Data de nascimento</label>
+            
+            <!-- input dia --> 
+            <input  class="dia" name='dia' id='dia' placeholder="  Dia"  type="number"  formControlName="dia" min="1" max="31">
+             
+             <!--input mes --> 
+            <select class="select"  type='number' name='mes' id='mes' formControlName='mes'>
+              <option  disabled selected='selected' > Mês</option>
+              <option *ngFor="let i of Meses" [value]='i.id' >{{i.name}}</option>
+            </select>
+            
+             <!--input ano --> 
+           <input  class="ano" name='ano' id='ano' placeholder="  Ano"  type="number"  formControlName="ano" max="2020" min='1920'>
+            
+            <!--Os erros --> 
+           <div class='erro' *ngIf="!dia.pristine && dia.errors || !mes.pristine && mes.errors || !ano.pristine && ano.errors || !MaiorQue18Anos() ">
+            <p *ngIf="dia.errors.required || mes.errors.required || ano.errors.required">* Data de Nascimento é obrigatória.</p>
+            <p *ngIf="!MaiorQue18Anos() && mensagem!=''">{{mensagem}}</p>
+          </div>
+          
+          </div>
+
+          <!--Input genero --> 
+          <div class="radio">
+            <input type="radio" formControlName="genero" value="Feminino" > Feminino
+            <input type="radio" formControlName="genero" value="Masculino"> Masculino
+            <input type="radio" formControlName="genero" value="Outro"> Outro
+
+            <div  class='erro' *ngIf="!genero.pristine && genero.errors">
+              <p *ngIf="genero.errors.required">* O gênero é obrigatório.</p>
+            </div>
+          </div>
+
+          <!--Input nome --> 
+          <div class="textos">
+            <input matInput class="nome" name='nome' id='nome' placeholder="  Como gostaria de ser chamado"  type="text"  formControlName="nome" minlength="2">
+             <!--O erros --> 
+            <div  class='erro' *ngIf="!nome.pristine && nome.errors">
+              <p *ngIf="nome.errors.required">* O nome é obrigatório.</p>
+              <p *ngIf="nome.errors.minlength">* O nome deve ter no mínimo 2 caracters.</p>
+              <p *ngIf="nome.errors.maxlength">* O nome deve ter no máximo 100 caracters.</p>
+            </div>
+          </div>
+
+          <!--input checkbox-->
+          <div class="termos">
+            <!--input 1-->
+            <input type="checkbox" formControlName="compartilharDados" value="true" > Compartilhar meus dados cadastrais com os provedores de conteúdo do Spotify para fins de marketing.
+            <br>
+            <br>
+             <!--input 2-->
+              <input type="checkbox" formControlName="politicaEtermos" value="true" > Eu aceito os <a href="https://www.spotify.com/br/legal/end-user-agreement/">Termos e condições</a> e a <a herf='https://www.spotify.com/br/legal/privacy-policy/'>Política de privacidade do Spotify.</a>
+              
+               <!--Erro caso não marque o input-->
+              <div  class='erro' *ngIf="!politicaEtermos.pristine && politicaEtermos.errors">
+                <p *ngIf="politicaEtermos.errors.required">* Este campo é obrigatório.</p>
+              </div>
+            
+           </div> 
+
+           <button type="submit">Increver-se</button>
+
+         </form>
+      
+    </div>
+
+    
+</div>
