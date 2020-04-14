@@ -1,9 +1,9 @@
 <ul>
     <li *ngFor="let list of playList" [routerLink]="['/musicas', list.id]">
         <img [src]="list.image">
-        <!-- <audio controls *ngFor="let audios of list.musicas">
-            <source [src]="audios.file" type="audio/mpeg">
-        </audio> -->
     </li>
 </ul>
 
+<!-- <audio controls *ngFor="let audios of list.musicas">
+    <source [src]="audios.file" type="audio/mpeg">
+</audio> -->

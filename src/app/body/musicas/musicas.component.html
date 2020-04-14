@@ -1,1 +1,7 @@
-<p>musicas works!</p>
+<div class="body">
+    <div>
+        <img [src]="playlistSelect.image">
+        <p>{{ playlistSelect.nome }}</p>
+    </div>
+    <mat-advanced-audio-player [playlist]="musics" [pageSizeOptions]="msaapPageSizeOptions" ></mat-advanced-audio-player>
+</div>

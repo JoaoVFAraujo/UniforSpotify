@@ -13,6 +13,8 @@ import { CommunityComponent } from './body/duvidas/components/community/communit
 import { PlaylistsComponent } from './body/playlists/playlists.component';
 import { MusicasComponent } from './body/musicas/musicas.component';
 import { ImgPlaylistsComponent } from './body/playlists/components/img-playlists/img-playlists.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxAudioPlayerModule } from 'ngx-audio-player';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { ImgPlaylistsComponent } from './body/playlists/components/img-playlists
     BrowserModule,
     AppRoutingModule,
     RouterModule,
+    BrowserAnimationsModule,
+    NgxAudioPlayerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

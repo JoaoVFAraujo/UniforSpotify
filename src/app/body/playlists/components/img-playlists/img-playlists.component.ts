@@ -1,4 +1,4 @@
-import { PLAYLIST } from './../../../../playlist-mock/playlist-mock';
+import { PlayListMock } from './../../../../playlist-mock/playlist-mock';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class ImgPlaylistsComponent {
 
-  playList: Array<any> = PLAYLIST;
+  playList: Array<any> = PlayListMock;
 
   constructor() { }
 

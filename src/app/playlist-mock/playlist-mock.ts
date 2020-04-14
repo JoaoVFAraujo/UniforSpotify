@@ -1,55 +1,51 @@
-export const PLAYLIST: Array<any> = [
+export const PlayListMock: Array<any> = [
     {
       id: 1,
+      nome: "Brasil 360",
       image: "assets/imgs/playlist/brasil360.jpg",
       musicas: [
         {
-          nome: "Sweater Weather",
-          autor: "The Neighbourhood",
+          title: "The Neighbourhood - Sweater Weather",
           album: "AA",
           tempo: 249,
-          file: "assets/mp3/sweater-weather.mp3"
+          link: "assets/mp3/sweater-weather.mp3"
         },
         {
-          nome: "drugs",
-          autor: "EDEN",
+          title: "EDEN - drugs",
           album: "BB",
           tempo: 360,
-          file: "assets/mp3/drugs.mp3"
+          link: "assets/mp3/drugs.mp3"
         },
         {
-          nome: "Bad Karma",
-          autor: "Axel Thesleff",
+          title: "Axel Thesleff - Bad Karma",
           album: "CC",
           tempo: 426,
-          file: "assets/mp3/bad-karma.mp3"
+          link: "assets/mp3/bad-karma.mp3"
         }
       ]
     },
     {
       id: 2,
+      nome: "Reggaeton 2020",
       image: "assets/imgs/playlist/reggaeton2020.jpg",
       musicas: [
         {
-          nome: "Baby I'm Yours",
-          autor: "Breakbot",
+          title: "Breakbot - Baby I'm Yours",
           album: "DD",
           tempo: 138,
-          file: "assets/mp3/baby-im-yours.mp3"
+          link: "assets/mp3/baby-im-yours.mp3"
         },
         {
-          nome: "Sunset Lover",
-          autor: "Petit Biscuit",
+          title: "Petit Biscuit - Sunset Lover",
           album: "EE",
           tempo: 201,
-          file: "assets/mp3/sunset-lover.mp3"
+          link: "assets/mp3/sunset-lover.mp3"
         },
         {
-          nome: "Firestone",
-          autor: "Kygo",
+          title: "Kygo - Firestone",
           album: "EE",
           tempo: 207,
-          file: "assets/mp3/firestone.mp3"
+          link: "assets/mp3/firestone.mp3"
         },
       ]
     },
@@ -58,11 +54,11 @@ export const PLAYLIST: Array<any> = [
       image: "assets/imgs/playlist/clubQueens.jpg",
       musicas: [
         // {
-        //   nome: "Somebody That I Used To Know",
+        //   title: "Somebody That I Used To Know",
         //   autor: "Gotye",
         //   album: "DD",
         //   tempo: 240,
-        //   file: "tal1"
+        //   link: "tal1"
         // },
       ]
     },
@@ -71,11 +67,11 @@ export const PLAYLIST: Array<any> = [
       image: "assets/imgs/playlist/sofrenciaSertaneja.jpg",
       musicas: [
         // {
-        //   nome: "Somebody That I Used To Know",
+        //   title: "Somebody That I Used To Know",
         //   autor: "Gotye",
         //   album: "DD",
         //   tempo: 240,
-        //   file: "tal1"
+        //   link: "tal1"
         // },
       ]
     },
@@ -84,11 +80,11 @@ export const PLAYLIST: Array<any> = [
       image: "assets/imgs/playlist/rockBrazuca.jpg",
       musicas: [
         // {
-        //   nome: "Somebody That I Used To Know",
+        //   title: "Somebody That I Used To Know",
         //   autor: "Gotye",
         //   album: "DD",
         //   tempo: 240,
-        //   file: "tal1"
+        //   link: "tal1"
         // },
       ]
     },
@@ -97,11 +93,11 @@ export const PLAYLIST: Array<any> = [
       image: "assets/imgs/playlist/eletroBR.jpg",
       musicas: [
         // {
-        //   nome: "Somebody That I Used To Know",
+        //   title: "Somebody That I Used To Know",
         //   autor: "Gotye",
         //   album: "DD",
         //   tempo: 240,
-        //   file: "tal1"
+        //   link: "tal1"
         // },
       ]
     },
@@ -110,11 +106,11 @@ export const PLAYLIST: Array<any> = [
       image: "assets/imgs/playlist/nerd80.jpg",
       musicas: [
         // {
-        //   nome: "Somebody That I Used To Know",
+        //   title: "Somebody That I Used To Know",
         //   autor: "Gotye",
         //   album: "DD",
         //   tempo: 240,
-        //   file: "tal1"
+        //   link: "tal1"
         // },
       ]
     },
@@ -123,11 +119,11 @@ export const PLAYLIST: Array<any> = [
       image: "assets/imgs/playlist/romantica8090.jpg",
       musicas: [
         // {
-        //   nome: "Somebody That I Used To Know",
+        //   title: "Somebody That I Used To Know",
         //   autor: "Gotye",
         //   album: "DD",
         //   tempo: 240,
-        //   file: "tal1"
+        //   link: "tal1"
         // },
       ]
     }
