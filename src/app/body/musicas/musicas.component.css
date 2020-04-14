@@ -2,9 +2,45 @@
     margin-block-start: -8px;
     margin-left: -8px;
     margin-right: -8px;
-    border: 110px solid #cccccc;
+    width: 100.4%;
+    height: 125%;
+    background-image: linear-gradient(to bottom, rgb(255,255,255),black);
+    
+}
+
+h1{
+    margin-bottom: 5%;
+    text-align: left;
+    color: rgb(29, 194, 87);
+    font-size: 60px;
+    font-family: 'Roboto', sans-serif;
+    text-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+}
+
+.body-playlist{
+    width: 60%;
+    margin-left: 10%;
+    margin-right: 15%;
+    bottom: 25%;
+    padding-top: 5%;
 }
 
 img {
-    width: 200px;
+    width: 450px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    border-radius: 3px;
+}
+
+.image{
+    background-color: none;
+    float: left;
+    margin-right: 1%;
+}
+
+.playlist{
+  background-color: white !important;  
+  width: 600px;
+  margin-left: 55%;
+  border-radius: 5px;
 }

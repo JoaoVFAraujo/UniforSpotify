@@ -1,7 +1,11 @@
 <div class="body">
-    <div>
-        <img [src]="playlistSelect.image">
-        <p>{{ playlistSelect.nome }}</p>
+    <div class='body-playlist'>
+        <h1>Playlist {{ playlistSelect.nome }}</h1>
+        <div class=image>
+            <img [src]="playlistSelect.image">
+        </div>
+        <div class="playlist">
+            <mat-advanced-audio-player [playlist]="musics" [pageSizeOptions]="msaapPageSizeOptions" ></mat-advanced-audio-player>
+        </div>
     </div>
-    <mat-advanced-audio-player [playlist]="musics" [pageSizeOptions]="msaapPageSizeOptions" ></mat-advanced-audio-player>
 </div>

@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MusicasComponent {
 
-  msaapPageSizeOptions = [5,10,15];
+  msaapPageSizeOptions = [3];
 
   musicId = '';
   playlistSelect;
