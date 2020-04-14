@@ -1,7 +1,7 @@
 <div class="body" >
     <form (ngSubmit)="onSubmit(formSingUp.value)" >
       <div>
-        <mat-form-field class="itemFull">
+        <mat-form-field class="m-t-10 itemFull">
           <mat-label>E-mail</mat-label>
           <input matInput [formControl]="formSingUp.get('email')" type="email">
           <mat-error *ngIf="formSingUp.get('email').errors?.required && formSingUp.get('email').touched">O campo é obrigatório.</mat-error>
@@ -10,7 +10,7 @@
       </div>
 
       <div>
-        <mat-form-field class="itemFull">
+        <mat-form-field class="m-t-10 itemFull">
           <mat-label>Confirmar E-mail</mat-label>
           <input matInput [formControl]="formConfirmaEmail" type="email">
           <mat-error *ngIf="formConfirmaEmail.errors?.required && formConfirmaEmail.touched">O campo é obrigatório.</mat-error>
@@ -20,7 +20,7 @@
       </div>
 
       <div>
-        <mat-form-field class="itemFull">
+        <mat-form-field class="m-t-10 itemFull">
           <mat-label>Senha</mat-label>
           <input matInput [formControl]="formSingUp.get('senha')" type="password">
           <mat-error *ngIf="formSingUp.get('senha').errors?.required && formSingUp.get('senha').touched">O campo é obrigatório.</mat-error>
@@ -30,7 +30,7 @@
       </div>
 
       <div>
-        <mat-form-field class="m-r-10 itemFull">
+        <mat-form-field class="m-t-10 itemFull">
           <mat-label>Data de Nascimento</mat-label>
           <input matInput [formControl]="formSingUp.get('data')" [min]="minDate" [max]="maxDate" [matDatepicker]="picker" readonly (click)="picker.open()">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -58,11 +58,11 @@
       </div>
 
       <div>
-        <mat-checkbox class="itemFull" [formControl]="formSingUp.get('compartilharDados')">Compartilhar meus dados cadastrais com os provedores de conteúdo do Spotify para fins de marketing.</mat-checkbox>
+        <mat-checkbox class="m-t-10 itemFull" [formControl]="formSingUp.get('compartilharDados')">Compartilhar meus dados cadastrais com os provedores de conteúdo do Spotify para fins de marketing.</mat-checkbox>
       </div>
 
       <div>
-        <mat-checkbox class="itemFull" [formControl]="politicaEtermos">Eu aceito os <a href="https://www.spotify.com/br/legal/end-user-agreement/">Termos e condições</a> e a <a herf='https://www.spotify.com/br/legal/privacy-policy/'>Política de privacidade do Spotify.</a></mat-checkbox>
+        <mat-checkbox class="m-t-10 itemFull" [formControl]="politicaEtermos">Eu aceito os <a href="https://www.spotify.com/br/legal/end-user-agreement/">Termos e condições</a> e a <a herf='https://www.spotify.com/br/legal/privacy-policy/'>Política de privacidade do Spotify.</a></mat-checkbox>
       </div>
       <div *ngIf="!emailsIguais()">
         <mat-error>O endereço de e-mail não é igual.</mat-error>
