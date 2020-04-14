@@ -5,17 +5,15 @@ import { Pessoa } from '../module/cadastro';
   providedIn: 'root'
 })
 export class ServiceRegistroService {
-  private listaCadastro: Array<Pessoa>=[];
+  private listaCadastro: Pessoa[] = [];
   
   constructor() { }
 
-  
-
-  public setPessoa(nova:Pessoa){
-      this.listaCadastro.push(nova)
+  public setPessoa(novaPessoa: Pessoa){
+    this.listaCadastro.push(novaPessoa);
   }
 
-  public getPessoas(){
-    console.log(this.listaCadastro);
+  public getPessoas(): Pessoa[] {
+    return this.listaCadastro;
   }
 }

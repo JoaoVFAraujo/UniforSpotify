@@ -1,17 +1,17 @@
 export class Pessoa {
-    nome:string;
-    email:string;
-    senha:string;
-    data:string;
-    genero:string;
-    compartilharDados:Boolean;
+    nome: string;
+    email: string;
+    senha: string;
+    data: string;
+    genero: string;
+    compartilharDados: Boolean;
 
-    constructor(nome:string, email:string, senha:string,data:string,genero:string, compartilharDados:Boolean){
-        this.nome=nome;
-        this.email=email;
-        this.senha=senha;
-        this.data=data;
-        this.genero=genero;
-        this.compartilharDados=compartilharDados;
+    constructor(obj?: Pessoa){
+        this.nome               = obj ? obj.nome                : null;
+        this.email              = obj ? obj.email               : null;
+        this.senha              = obj ? obj.senha               : null;
+        this.data               = obj ? obj.data                : null;
+        this.genero             = obj ? obj.genero              : null;
+        this.compartilharDados  = obj ? obj.compartilharDados   : false;
     }
 }

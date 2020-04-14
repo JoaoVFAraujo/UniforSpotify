@@ -1,4 +1,4 @@
-export const PlayListMock: Array<any> = [
+export const PlayListMock: any[] = [
     {
       id: 1,
       nome: "Brasil 360",
