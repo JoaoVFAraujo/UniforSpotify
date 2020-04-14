@@ -64,14 +64,14 @@
       <div>
         <mat-checkbox class="m-t-10 itemFull" [formControl]="politicaEtermos">Eu aceito os <a href="https://www.spotify.com/br/legal/end-user-agreement/">Termos e condições</a> e a <a herf='https://www.spotify.com/br/legal/privacy-policy/'>Política de privacidade do Spotify.</a></mat-checkbox>
       </div>
-      <div *ngIf="!emailsIguais()">
+      <div class="m-t-10 itemFull" *ngIf="!emailsIguais()">
         <mat-error>O endereço de e-mail não é igual.</mat-error>
       </div>
-      <div *ngIf="!MaiorQue18Anos()">
+      <div class="itemFull" *ngIf="!MaiorQue18Anos()">
         <mat-error >Obrigatório ser maior de 18 anos.</mat-error>
       </div>
 
-      <div class="m-t-15">
+      <div class="m-t-15 text-center">
         <button mat-raised-button color="primary" type="submit"
           [disabled]="formSingUp.invalid || !MaiorQue18Anos() || !emailsIguais() || politicaEtermos.invalid">Increver-se</button>
       </div>
