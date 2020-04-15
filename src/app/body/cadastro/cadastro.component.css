@@ -1,10 +1,8 @@
 .body {
-    margin-block-start: -8px;
-    margin-left: -8px;
-    margin-right: -8px;
-    border: 110px solid white;
     margin: 0 auto;
-    width: 50%; /* Valor da Largura */
+    width: 50%;
+    padding-top: 8%;
+    padding-bottom: 5%;
 }
 
 a {

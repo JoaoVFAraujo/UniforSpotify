@@ -2,11 +2,8 @@
 /* corpo da div*/
 .body {
     background-image: linear-gradient(to right,rgb(237,41,49),rgb(249,90,62));
-    margin-left: -8px;
-    margin-right: -8px;
     padding-top: 30px;
     padding-bottom: 30px;
-    width: 100.4%;
 }
 
 /* caixa de texto*/
