@@ -28,11 +28,12 @@ export class CadastroComponent {
       this.maxDate = new Date(currentYear, currentMonth, currentDate);
 
       this.formSingUp = this.fb.group({
-        nome              : [ '', [Validators.required, Validators.minLength(2)] ],
-        email             : [ '', [Validators.email, Validators.required] ],
-        senha             : [ '', [Validators.required, Validators.minLength(6), Validators.maxLength(60)] ],
-        data              : [ '', [Validators.required, Validators.min(1), Validators.max(31)] ],
-        genero            : [ '', Validators.required ],
+        id                : [ null ],
+        nome              : [ null, [Validators.required, Validators.minLength(2)] ],
+        email             : [ null, [Validators.email, Validators.required] ],
+        senha             : [ null, [Validators.required, Validators.minLength(6), Validators.maxLength(60)] ],
+        data              : [ null, [Validators.required, Validators.min(1), Validators.max(31)] ],
+        genero            : [ null, Validators.required ],
         compartilharDados : [ false ]
       });
 
