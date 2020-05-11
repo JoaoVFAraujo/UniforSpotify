@@ -18,8 +18,17 @@ img {
     transition: 0.5s;
 }
 
-a :hover{
+a.lista :hover{
     width: 205px;
     height: 205px;
-    filter: alpha(opacity=65);
+}
+
+a.addPlaylist {
+    position: fixed;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+a.addPlaylist :hover{
+     background-color: burlywood;
 }
