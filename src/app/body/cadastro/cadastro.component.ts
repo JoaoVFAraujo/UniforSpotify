@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { CadastroService } from './service/cadastro.service';
-import { Pessoa } from 'src/app/module/cadastro';
+import { PessoaModel } from 'src/app/model/pessoa-mock';
 
 @Component({
   selector: 'app-cadastro',
@@ -47,7 +47,7 @@ export class CadastroComponent {
 
   onSubmit(valueForm) {
 
-    let pessoa: Pessoa = new Pessoa(valueForm);
+    let pessoa: PessoaModel = new PessoaModel(valueForm);
     this.cadastroService.setPessoa(pessoa);
 
     if (this.cadastroService.getPessoas()) {

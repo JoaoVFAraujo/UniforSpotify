@@ -24,7 +24,7 @@ export class ImgPlaylistsComponent {
           console.log("Probleman na comunicação");
         }
       }
-    )
+    );
 
   }
 

@@ -20,17 +20,6 @@ export class PlaylistService {
             );
     }
 
-    // Esta função seria para logar, voce vai passar um JSON como { email: "admin@spotify.com.br", senha: "admin" }, e ele no meu intercept vai receber esses valores e procurar por um usuário assim e depois vai lhe responder um status 200 OK com o token, ou um status 404 e não ira encontrará o usuário;
-
-    // login(login): Observable<any> {
-    //     const body = JSON.stringify(login);
-
-    //     return this.httpClient.post('http://localhost:4200/login', body)
-    //         .pipe(
-    //             catchError(this.handleError)
-    //         );
-    // }
-
 
     // Este codigo esta na documentação do Angular na parte de serviços;
     private handleError(error: HttpErrorResponse) {

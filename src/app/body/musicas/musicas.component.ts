@@ -1,6 +1,6 @@
-import { PlayListMock } from './../../playlist-mock/playlist-mock';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { PlayListMock } from 'src/app/mock/playlist-mock/playlist-mock';
 
 @Component({
   selector: 'app-musicas',

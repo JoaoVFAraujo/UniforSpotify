@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Pessoa } from 'src/app/module/cadastro';
+import { PessoaModel } from 'src/app/model/pessoa-mock';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CadastroService {
-  private listaCadastro: Pessoa[] = [];
+  private listaCadastro: PessoaModel[] = [];
   
   constructor(public httpClient: HttpClient) { }
 
-  public setPessoa(novaPessoa: Pessoa){
+  public setPessoa(novaPessoa: PessoaModel){
     this.listaCadastro.push(novaPessoa);
   }
 
-  public getPessoas(): Pessoa[] {
+  public getPessoas(): PessoaModel[] {
     return this.listaCadastro;
   }
 }

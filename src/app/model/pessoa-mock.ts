@@ -1,4 +1,4 @@
-export class Pessoa {
+export class PessoaModel {
     id: number;
     nome: string;
     email: string;
@@ -7,7 +7,7 @@ export class Pessoa {
     genero: string;
     compartilharDados: Boolean;
 
-    constructor(obj?: Pessoa){
+    constructor(obj?: PessoaModel){
         this.id                 = obj ? obj.id                  : null;
         this.nome               = obj ? obj.nome                : null;
         this.email              = obj ? obj.email               : null;
