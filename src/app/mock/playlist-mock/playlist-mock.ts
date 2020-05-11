@@ -1,4 +1,6 @@
-export const PlayListMock: any[] = [
+import { PlaylistModel } from 'src/app/model/playlist-mock';
+
+export const PlayListMock: PlaylistModel[] = [
     {
       id: 1,
       nome: "Brasil 360",

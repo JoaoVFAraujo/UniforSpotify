@@ -20,7 +20,6 @@ export class PlaylistService {
             );
     }
 
-
     // Este codigo esta na documentação do Angular na parte de serviços;
     private handleError(error: HttpErrorResponse) {
 

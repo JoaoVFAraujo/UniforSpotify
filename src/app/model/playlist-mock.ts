@@ -5,7 +5,7 @@ export class PlaylistModel {
     nome: string;
     image: string;
     idUser: number;
-    musicas: Array<MusicaModel>;
+    musicas: MusicaModel[];
 
     constructor(obj?: PlaylistModel){
         this.id         = obj ? obj.id      : null;

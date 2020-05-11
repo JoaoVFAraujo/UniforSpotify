@@ -11,13 +11,13 @@ export class MusicasComponent {
 
   msaapPageSizeOptions = [3];
 
-  musicId = '';
+  musicId: number;
   playlistSelect;
   musics;
 
   constructor(private activatedRoute: ActivatedRoute) {
 
-    this.musicId = this.activatedRoute.snapshot.params.musicId;
+    this.musicId = +this.activatedRoute.snapshot.params.musicId;
 
     this.playlistSelect = PlayListMock.filter(element => element.id == this.musicId)[0];
 

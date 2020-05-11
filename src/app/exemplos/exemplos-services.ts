@@ -99,6 +99,15 @@ export class ExemplosComponent {
                 console.log("Buscando playlist específico: ", succ);
             }
         );
+        
+        // --------------------------------------------------------------------------------------
+
+        // Buscando todas musicas;
+        this.httpClient.get('http://localhost:4200/musics').subscribe(
+            (succ: any) => {
+                console.log("Buscando todas musicas: ", succ);
+            }
+        );
 
     }
 

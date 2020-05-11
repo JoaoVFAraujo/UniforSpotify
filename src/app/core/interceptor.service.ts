@@ -7,12 +7,13 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpResponse, Htt
 import { Observable, of } from 'rxjs';
 import { PlaylistModel } from '../model/playlist-mock';
 import { PessoaModel } from '../model/pessoa-mock';
+import { MusicaModel } from '../model/musica-mock';
 
 @Injectable()
 export class InterceptorService implements HttpInterceptor {
 
-    playList: Array<PlaylistModel> = PlayListMock;
-    listUsers: Array<PessoaModel> = listUsersMock;
+    playList: PlaylistModel[] = PlayListMock;
+    listUsers: PessoaModel[] = listUsersMock;
 
     constructor() { }
 
@@ -36,7 +37,7 @@ export class InterceptorService implements HttpInterceptor {
                 return of(new HttpResponse({ body: {status: 200, message: 'Usuário editado com sucesso', object: this.listUsers[indexUser]} }));
             }
 
-        }  else if (request.method === "GET" && request.url.indexOf('getUser') > -1 ) {
+        }  else if (request.method === "GET" && request.url.indexOf('getUser') > -1) {
             const idUser = JSON.parse(request.url.replace("http://localhost:4200/getUser/", ""));
             const indexUser = this.listUsers.findIndex(u => u.id === idUser);
 
@@ -73,13 +74,24 @@ export class InterceptorService implements HttpInterceptor {
                 return of(new HttpResponse({ body: {status: 200, message: 'Playlist editado com sucesso', object: this.playList[indexPlaylist]} }));
             }
 
-        } else if (request.method === "GET" && request.url.indexOf('getPlayList') > -1 ) {
+        } else if (request.method === "GET" && request.url.indexOf('getPlayList') > -1) {
             const idPlaylist = JSON.parse(request.url.replace("http://localhost:4200/getPlayList/", ""));
             const indexPlaylist = this.playList.findIndex(u => u.id === idPlaylist);
 
             return of(new HttpResponse({ body: {status: 200, message: 'Playlist encontrado com sucesso', object: this.playList[indexPlaylist]} }));
-            
-        }
+
+        } else if (request.method === "GET" && request.url === "http://localhost:4200/musics") {
+            let musics: MusicaModel[] = [];
+
+            this.playList.forEach(element => {
+                element.musicas.forEach(music => {
+                    musics.push(music);
+                });
+            });
+
+            return of(new HttpResponse({ body: {status: 200, message: 'Listagem de todas músicas', object: musics} }));
+
+        } 
         
         return next.handle(request);
     }
