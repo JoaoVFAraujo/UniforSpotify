@@ -1,4 +1,5 @@
 export class Pessoa {
+    id: number;
     nome: string;
     email: string;
     senha: string;
@@ -7,6 +8,7 @@ export class Pessoa {
     compartilharDados: Boolean;
 
     constructor(obj?: Pessoa){
+        this.id                 = obj ? obj.id                  : null;
         this.nome               = obj ? obj.nome                : null;
         this.email              = obj ? obj.email               : null;
         this.senha              = obj ? obj.senha               : null;

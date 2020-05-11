@@ -25,6 +25,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpIntercptorProviders } from './core/interceptor';
 
 @NgModule({
   declarations: [
@@ -55,9 +57,12 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatButtonModule,
     MatCheckboxModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    HttpIntercptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
