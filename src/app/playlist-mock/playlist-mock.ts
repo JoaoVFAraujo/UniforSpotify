@@ -159,7 +159,7 @@ export const PlayListMock: any[] = [
     },
     {
       id: 10,
-      image: "assets/imgs/playlist/eletroBR.jpg",
+      image: "assets/imgs/playlist/Brasil360.jpg",
       musicas: [
         // {
         //   title: "Somebody That I Used To Know",
