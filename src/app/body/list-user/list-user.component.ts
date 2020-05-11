@@ -12,7 +12,7 @@ import { ListUserService } from './service/list-user-service.service';
 export class ListUserComponent implements OnInit {
 
   displayedColumns: string[] = ['nome', 'email', 'data'];
-  dataSource = new MatTableDataSource<PessoaModel>();
+  dataSource = new MatTableDataSource<PessoaModel>([]);
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   
@@ -22,7 +22,7 @@ export class ListUserComponent implements OnInit {
       (succ) => {
         this.dataSource = new MatTableDataSource<PessoaModel>(succ.object);
       }
-    )
+    );
   }
 
   ngOnInit() {
