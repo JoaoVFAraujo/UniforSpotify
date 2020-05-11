@@ -27,6 +27,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpIntercptorProviders } from './core/interceptor';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { HttpIntercptorProviders } from './core/interceptor';
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    HttpClientModule
+    HttpClientModule,
+    InfiniteScrollModule,
+    StoreModule.forRoot({}, {}),
   ],
   providers: [
     HttpIntercptorProviders

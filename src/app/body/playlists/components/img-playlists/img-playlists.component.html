@@ -1,5 +1,10 @@
-<ul>
-    <li *ngFor="let list of playList" [routerLink]="['/musicas', list.id]">
-        <img [src]="list.image">
-    </li>
-</ul>
+<div  infiniteScroll  (scrolled)="onScroll()"  *ngIf="playList.length!=0" >
+    <ul>
+        <li *ngFor="let list of playList" [routerLink]="['/musicas', list.id]">
+          <a> <img [src]="list.image"> </a>
+        </li>
+    </ul>
+</div>
+<div *ngIf="playList.length==0">
+    <h1>Não foram encontradas Playlists!</h1>
+</div>

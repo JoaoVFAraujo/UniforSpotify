@@ -24,8 +24,7 @@ h1 {
 
 .header-usuario a {
     float: left;
-    color: rgb(30,215,96);    
-    text-shadow: rgba(0,0,0, 0.2);
+    color: rgb(30,215,96);
     text-align: center;
     padding: 12px;
     text-decoration: none;
@@ -40,5 +39,5 @@ h1 {
 
 .header-usuario a:hover {
     color: rgb(255,255,255);
-    text-shadow: rgba(0,0,0, 0.2);    
+    text-shadow: rgb(255, 253, 253);    
   }

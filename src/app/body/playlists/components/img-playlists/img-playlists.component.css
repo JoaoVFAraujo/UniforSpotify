@@ -1,15 +1,25 @@
 ul {
     background-color: none;
     margin: 0 auto;
-    width: 50%;
+    width: 90%;
+    margin-left: 7% ;
 }
 
 ul li {
-    display: inline;
-    margin-left: 5px;
+    display: inline-block;
+    margin-right: 15px;
+    margin-bottom: 10px;
 }
 
 img {
     width: 200px;
+    height: 200px;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+a :hover{
+    width: 205px;
+    height: 205px;
+    filter: alpha(opacity=65);
 }
