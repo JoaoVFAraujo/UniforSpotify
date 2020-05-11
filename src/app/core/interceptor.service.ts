@@ -37,7 +37,7 @@ export class InterceptorService implements HttpInterceptor {
                 return of(new HttpResponse({ body: {status: 200, message: 'Usuário editado com sucesso', object: this.listUsers[indexUser]} }));
             }
 
-        }  else if (request.method === "GET" && request.url.indexOf('getUser') > -1) {
+        } else if (request.method === "GET" && request.url.indexOf('getUser') > -1) {
             const idUser = JSON.parse(request.url.replace("http://localhost:4200/getUser/", ""));
             const indexUser = this.listUsers.findIndex(u => u.id === idUser);
 
