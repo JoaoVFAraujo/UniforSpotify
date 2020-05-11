@@ -27,6 +27,9 @@ export class InterceptorService implements HttpInterceptor {
         if (request.method === "GET" && request.url === "http://localhost:4200/playList") {
             return of(new HttpResponse({ body: {status: 200, message: 'Listagem de todas playlist', object: this.playList} }));
 
+        } else if (request.method === "GET" && request.url === "http://localhost:4200/users") {
+            return of(new HttpResponse({ body: {status: 200, message: 'Listagem de todos usuários', object: this.listUsers} }));
+
         } else if (request.method === "POST" && request.url === "http://localhost:4200/user") {
             const user = JSON.parse(request.body);
             if (!user.id) {
