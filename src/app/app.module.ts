@@ -29,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpIntercptorProviders } from './core/interceptor';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { StoreModule } from '@ngrx/store';
+import { AddPlaylistComponent } from './body/playlists/components/add-playlist/add-playlist.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { StoreModule } from '@ngrx/store';
     PlaylistsComponent,
     MusicasComponent,
     ImgPlaylistsComponent,
+    AddPlaylistComponent,
   ],
   imports: [
     BrowserModule,
