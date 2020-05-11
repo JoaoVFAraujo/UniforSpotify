@@ -27,11 +27,16 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpIntercptorProviders } from './core/interceptor';
+import { FormUserComponent } from './body/form-user/form-user.component';
+import { ListUserComponent } from './body/list-user/list-user.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    FormUserComponent,
     NavHeaderComponent,
     FooterComponent,
     DuvidasComponent,
@@ -41,6 +46,7 @@ import { HttpIntercptorProviders } from './core/interceptor';
     PlaylistsComponent,
     MusicasComponent,
     ImgPlaylistsComponent,
+    ListUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +64,9 @@ import { HttpIntercptorProviders } from './core/interceptor';
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [
     HttpIntercptorProviders

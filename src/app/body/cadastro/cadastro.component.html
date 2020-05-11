@@ -1,79 +1,79 @@
-<div class="body" >
-    <form (ngSubmit)="onSubmit(formSingUp.value)" >
-      <div>
-        <mat-form-field class="m-t-10 itemFull">
-          <mat-label>E-mail</mat-label>
-          <input matInput [formControl]="formSingUp.get('email')" type="email">
-          <mat-error *ngIf="formSingUp.get('email').errors?.required && formSingUp.get('email').touched">O campo é obrigatório.</mat-error>
-          <mat-error *ngIf="formSingUp.get('email').errors?.email">Digite um e-mail válido.</mat-error>
-        </mat-form-field>
-      </div>
+<div class="body">
+  <form (ngSubmit)="onSubmit(formSingUp.value)" >
+    <div>
+      <mat-form-field class="m-t-10 itemFull">
+        <mat-label>E-mail</mat-label>
+        <input matInput [formControl]="formSingUp.get('email')" type="email">
+        <mat-error *ngIf="formSingUp.get('email').errors?.required && formSingUp.get('email').touched">O campo é obrigatório.</mat-error>
+        <mat-error *ngIf="formSingUp.get('email').errors?.email">Digite um e-mail válido.</mat-error>
+      </mat-form-field>
+    </div>
 
-      <div>
-        <mat-form-field class="m-t-10 itemFull">
-          <mat-label>Confirmar E-mail</mat-label>
-          <input matInput [formControl]="formConfirmaEmail" type="email">
-          <mat-error *ngIf="formConfirmaEmail.errors?.required && formConfirmaEmail.touched">O campo é obrigatório.</mat-error>
-          <mat-error *ngIf="formConfirmaEmail.errors?.email">Digite um e-mail válido.</mat-error>
-          <mat-error ></mat-error>
-        </mat-form-field>
-      </div>
+    <div>
+      <mat-form-field class="m-t-10 itemFull">
+        <mat-label>Confirmar E-mail</mat-label>
+        <input matInput [formControl]="formConfirmaEmail" type="email">
+        <mat-error *ngIf="formConfirmaEmail.errors?.required && formConfirmaEmail.touched">O campo é obrigatório.</mat-error>
+        <mat-error *ngIf="formConfirmaEmail.errors?.email">Digite um e-mail válido.</mat-error>
+        <mat-error ></mat-error>
+      </mat-form-field>
+    </div>
 
-      <div>
-        <mat-form-field class="m-t-10 itemFull">
-          <mat-label>Senha</mat-label>
-          <input matInput [formControl]="formSingUp.get('senha')" type="password">
-          <mat-error *ngIf="formSingUp.get('senha').errors?.required && formSingUp.get('senha').touched">O campo é obrigatório.</mat-error>
-          <mat-error *ngIf="formSingUp.get('senha').errors?.minlength">Deve ter no mínimo 6 caracteres.</mat-error>
-          <mat-error *ngIf="formSingUp.get('senha').errors?.maxlength">Deve ter no máximo 60 caracteres.</mat-error>
-        </mat-form-field>
-      </div>
+    <div>
+      <mat-form-field class="m-t-10 itemFull">
+        <mat-label>Senha</mat-label>
+        <input matInput [formControl]="formSingUp.get('senha')" type="password">
+        <mat-error *ngIf="formSingUp.get('senha').errors?.required && formSingUp.get('senha').touched">O campo é obrigatório.</mat-error>
+        <mat-error *ngIf="formSingUp.get('senha').errors?.minlength">Deve ter no mínimo 6 caracteres.</mat-error>
+        <mat-error *ngIf="formSingUp.get('senha').errors?.maxlength">Deve ter no máximo 60 caracteres.</mat-error>
+      </mat-form-field>
+    </div>
 
-      <div>
-        <mat-form-field class="m-t-10 itemFull">
-          <mat-label>Data de Nascimento</mat-label>
-          <input matInput [formControl]="formSingUp.get('data')" [min]="minDate" [max]="maxDate" [matDatepicker]="picker" readonly (click)="picker.open()">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-          <mat-error *ngIf="formSingUp.get('data').errors?.required && formSingUp.get('data').touched">O campo é obrigatório.</mat-error>
-        </mat-form-field>
-      </div>
+    <div>
+      <mat-form-field class="m-t-10 itemFull">
+        <mat-label>Data de Nascimento</mat-label>
+        <input matInput [formControl]="formSingUp.get('data')" [min]="minDate" [max]="maxDate" [matDatepicker]="picker" readonly (click)="picker.open()">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="formSingUp.get('data').errors?.required && formSingUp.get('data').touched">O campo é obrigatório.</mat-error>
+      </mat-form-field>
+    </div>
 
-      <div class="m-t-10 itemFull">
-        <mat-radio-group [formControl]="formSingUp.get('genero')">
-          <mat-radio-button value="m" class="m-r-15">Masculino</mat-radio-button>
-          <mat-radio-button value="f" class="m-r-15">Feminino</mat-radio-button>
-          <mat-radio-button value="any">Outro</mat-radio-button>
-        </mat-radio-group>
-        <mat-error *ngIf="formSingUp.get('genero').errors?.required && formSingUp.get('genero').touched">Escolha seu gênero.</mat-error>
-      </div>
+    <div class="m-t-10 itemFull">
+      <mat-radio-group [formControl]="formSingUp.get('genero')">
+        <mat-radio-button value="m" class="m-r-15">Masculino</mat-radio-button>
+        <mat-radio-button value="f" class="m-r-15">Feminino</mat-radio-button>
+        <mat-radio-button value="any">Outro</mat-radio-button>
+      </mat-radio-group>
+      <mat-error *ngIf="formSingUp.get('genero').errors?.required && formSingUp.get('genero').touched">Escolha seu gênero.</mat-error>
+    </div>
 
-      <div>
-        <mat-form-field class="m-t-10 itemFull">
-          <mat-label>Como devemos chamar você?</mat-label>
-          <input matInput [formControl]="formSingUp.get('nome')" type="text">
-          <mat-error *ngIf="formSingUp.get('nome').errors?.required && formSingUp.get('nome').touched">O campo é obrigatório.</mat-error>
-          <mat-error *ngIf="formSingUp.get('nome').errors?.minlength">Deve ter no mínimo 2 caracteres.</mat-error>
-        </mat-form-field>
-      </div>
+    <div>
+      <mat-form-field class="m-t-10 itemFull">
+        <mat-label>Como devemos chamar você?</mat-label>
+        <input matInput [formControl]="formSingUp.get('nome')" type="text">
+        <mat-error *ngIf="formSingUp.get('nome').errors?.required && formSingUp.get('nome').touched">O campo é obrigatório.</mat-error>
+        <mat-error *ngIf="formSingUp.get('nome').errors?.minlength">Deve ter no mínimo 2 caracteres.</mat-error>
+      </mat-form-field>
+    </div>
 
-      <div>
-        <mat-checkbox class="m-t-10 itemFull" [formControl]="formSingUp.get('compartilharDados')">Compartilhar meus dados cadastrais com os provedores de conteúdo do Spotify para fins de marketing.</mat-checkbox>
-      </div>
+    <div>
+      <mat-checkbox class="m-t-10 itemFull" [formControl]="formSingUp.get('compartilharDados')">Compartilhar meus dados cadastrais com os provedores de conteúdo do Spotify para fins de marketing.</mat-checkbox>
+    </div>
 
-      <div>
-        <mat-checkbox class="m-t-10 itemFull" [formControl]="politicaEtermos">Eu aceito os <a href="https://www.spotify.com/br/legal/end-user-agreement/">Termos e condições</a> e a <a herf='https://www.spotify.com/br/legal/privacy-policy/'>Política de privacidade do Spotify.</a></mat-checkbox>
-      </div>
-      <div class="m-t-10 itemFull" *ngIf="!emailsIguais()">
-        <mat-error>O endereço de e-mail não é igual.</mat-error>
-      </div>
-      <div class="itemFull" *ngIf="!MaiorQue18Anos()">
-        <mat-error >Obrigatório ser maior de 18 anos.</mat-error>
-      </div>
+    <div>
+      <mat-checkbox class="m-t-10 itemFull" [formControl]="politicaEtermos">Eu aceito os <a href="https://www.spotify.com/br/legal/end-user-agreement/">Termos e condições</a> e a <a herf='https://www.spotify.com/br/legal/privacy-policy/'>Política de privacidade do Spotify.</a></mat-checkbox>
+    </div>
+    <div class="m-t-10 itemFull" *ngIf="!emailsIguais()">
+      <mat-error>O endereço de e-mail não é igual.</mat-error>
+    </div>
+    <div class="itemFull" *ngIf="!MaiorQue18Anos()">
+      <mat-error >Obrigatório ser maior de 18 anos.</mat-error>
+    </div>
 
-      <div class="m-t-15 text-center">
-        <button mat-raised-button color="primary" type="submit"
-          [disabled]="formSingUp.invalid || !MaiorQue18Anos() || !emailsIguais() || politicaEtermos.invalid">Increver-se</button>
-      </div>
-    </form>
+    <div class="m-t-15 text-center">
+      <button mat-raised-button color="primary" type="submit"
+        [disabled]="formSingUp.invalid || !MaiorQue18Anos() || !emailsIguais() || politicaEtermos.invalid">Increver-se</button>
+    </div>
+  </form>
 </div>

@@ -9,7 +9,7 @@ export class ExemplosComponent {
   constructor(private httpClient: HttpClient) { }
 
     // função de exemplo para todos sevicções 
-    tal() {
+    exemplo() {
 
         // Cadastrando usuário;
         const user = JSON.stringify({ nome: "joao", email: "joao@spotify.com.br", senha: "joao", genero: "m", compartilharDados: false, data: new Date(1990, 0, 1) });

@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
-import { PlaylistModel } from '../model/playlist-mock';
-import { PessoaModel } from '../model/pessoa-mock';
-import { MusicaModel } from '../model/musica-mock';
+import { PlaylistModel } from '../model/playlist-model';
+import { PessoaModel } from '../model/pessoa-model';
+import { MusicaModel } from '../model/musica-model';
 
 @Injectable()
 export class InterceptorService implements HttpInterceptor {

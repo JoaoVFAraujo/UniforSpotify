@@ -1,4 +1,4 @@
-import { MusicaModel } from './musica-mock';
+import { MusicaModel } from './musica-model';
 
 export class PlaylistModel {
     id: number;

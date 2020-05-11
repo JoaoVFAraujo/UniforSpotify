@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { CadastroService } from './service/cadastro.service';
-import { PessoaModel } from 'src/app/model/pessoa-mock';
+import { PessoaModel } from 'src/app/model/pessoa-model';
 
 @Component({
   selector: 'app-cadastro',

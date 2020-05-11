@@ -1,0 +1,15 @@
+.body {
+    margin: 0 auto;
+    width: 50%;
+    padding-top: 8%;
+    padding-bottom: 5%;
+}
+
+a {
+    color: #1DB954;
+    text-decoration: none;
+}
+
+.itemFull {
+    width: 100%;
+}

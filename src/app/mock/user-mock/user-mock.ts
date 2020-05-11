@@ -6,6 +6,6 @@ export const listUsersMock: any[] = [
       senha: "admin",
       genero: "any",
       compartilharDados: false,
-      data: new Date(1990, 0, 1)
+      data: new Date(1990, 0, 25)
     }
 ];

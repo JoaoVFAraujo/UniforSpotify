@@ -1,4 +1,4 @@
-import { PlaylistModel } from 'src/app/model/playlist-mock';
+import { PlaylistModel } from 'src/app/model/playlist-model';
 
 export const PlayListMock: PlaylistModel[] = [
     {

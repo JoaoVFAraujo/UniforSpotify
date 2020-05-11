@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { PessoaModel } from 'src/app/model/pessoa-mock';
+import { PessoaModel } from 'src/app/model/pessoa-model';
 
 @Injectable({
   providedIn: 'root'
