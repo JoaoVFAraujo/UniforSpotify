@@ -25,7 +25,7 @@ export class InterceptorService implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
         if (request.method === "GET" && request.url === "http://localhost:4200/playList") {
-            return of(new HttpResponse({ status: 200, body: this.playList }));
+            return of(new HttpResponse({ body: {status: 200, message: 'Listagem de todas playlist', object: this.playList} }));
 
         } else if (request.method === "POST" && request.url === "http://localhost:4200/user") {
             const user = JSON.parse(request.body);
@@ -33,12 +33,12 @@ export class InterceptorService implements HttpInterceptor {
                 user.id = this.listUsers.length + 1;
                 this.listUsers.push(user);
 
-                return of(new HttpResponse({ status: 200, body: { message: 'Usuário cadastrado com sucesso', object: this.listUsers } }));
+                return of(new HttpResponse({ body: {status: 200, message: 'Usuário cadastrado com sucesso', object: this.listUsers} }));
             } else {
                 const indexUser = this.listUsers.findIndex(u => u.id === user.id);
                 this.listUsers[indexUser] = user;
 
-                return of(new HttpResponse({ status: 200, body: { message: 'Usuário editado com sucesso', object: this.listUsers } }));
+                return of(new HttpResponse({ body: {status: 200, message: 'Usuário editado com sucesso', object: this.listUsers} }));
             }
 
         }  else if (request.method === "POST" && request.url === "http://localhost:4200/login") {
@@ -48,11 +48,16 @@ export class InterceptorService implements HttpInterceptor {
                 let token = '';
                 for (var i = 80; i > 0; --i) token += (Math.floor(Math.random()*256)).toString(16);
                 
-                return of(new HttpResponse({ status: 200, body: {token: token} }));
+                return of(new HttpResponse({ body: {status: 200, token: token} }));
             } else {
-                return of(new HttpResponse({ status: 404, body: 'Usuário não encontrado' }));
+                return of(new HttpResponse({ body: {status: 404, message: 'Usuário não encontrado'} }));
             }
             
+        } else if (request.method === "GET" && request.url.indexOf('getUser') > -1 ) {
+            const idUser = JSON.parse(request.url.replace("http://localhost:4200/getUser/", ""));
+            const indexUser = this.listUsers.findIndex(u => u.id === idUser);
+
+            return of(new HttpResponse({ body: {status: 200, message: 'Usuário encontrado com sucesso', object: this.listUsers[indexUser]} }));
         }
         
         return next.handle(request);

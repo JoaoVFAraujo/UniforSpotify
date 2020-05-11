@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { ServiceRegistroService } from 'src/app/service/service-registro.service';
+import { CadastroService } from './service/cadastro.service';
 import { Pessoa } from 'src/app/module/cadastro';
 
 @Component({
@@ -18,7 +18,7 @@ export class CadastroComponent {
 
   constructor(
     private fb: FormBuilder,
-    private service: ServiceRegistroService) {
+    private cadastroService: CadastroService) {
 
       const currentYear = new Date().getFullYear();
       const currentMonth = new Date().getMonth();
@@ -48,9 +48,9 @@ export class CadastroComponent {
   onSubmit(valueForm) {
 
     let pessoa: Pessoa = new Pessoa(valueForm);
-    this.service.setPessoa(pessoa);
+    this.cadastroService.setPessoa(pessoa);
 
-    if (this.service.getPessoas()) {
+    if (this.cadastroService.getPessoas()) {
       alert("Cadastrado realizado com sucesso!")
       this.formSingUp.reset('');
     }
