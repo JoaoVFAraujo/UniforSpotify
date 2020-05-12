@@ -31,6 +31,7 @@ import { FormUserComponent } from './body/form-user/form-user.component';
 import { ListUserComponent } from './body/list-user/list-user.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatNativeDateModule,
     HttpClientModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatIconModule
   ],
   providers: [
     HttpIntercptorProviders

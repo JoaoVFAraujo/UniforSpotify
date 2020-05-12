@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'cadastro', component: CadastroComponent },
   { path: 'playlists', component: PlaylistsComponent },
   { path: 'musicas/:musicId', component: MusicasComponent },
-  { path: 'registerUser', component: FormUserComponent },
+  { path: 'registerUser/:userId', component: FormUserComponent },
   { path: 'listUser', component: ListUserComponent }
 ];
 

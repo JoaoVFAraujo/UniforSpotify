@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { PessoaModel } from 'src/app/model/pessoa-model';
-import { ListUserService } from './service/list-user-service.service';
+import { ListUserService } from './service/list-user-service';
 
 @Component({
   selector: 'app-list-user',
@@ -11,7 +11,7 @@ import { ListUserService } from './service/list-user-service.service';
 })
 export class ListUserComponent implements OnInit {
 
-  displayedColumns: string[] = ['nome', 'email', 'data'];
+  displayedColumns: string[] = ['nome', 'email', 'data', 'acao'];
   dataSource = new MatTableDataSource<PessoaModel>([]);
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
