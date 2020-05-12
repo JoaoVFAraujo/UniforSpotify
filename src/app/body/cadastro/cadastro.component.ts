@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { CadastroService } from './service/cadastro.service';
 import { PessoaModel } from 'src/app/model/pessoa-model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
@@ -18,24 +19,11 @@ export class CadastroComponent {
 
   constructor(
     private fb: FormBuilder,
+    private router: Router,
     private cadastroService: CadastroService) {
 
-      const currentYear = new Date().getFullYear();
-      const currentMonth = new Date().getMonth();
-      const currentDate = new Date().getDate();
-
-      this.minDate = new Date(1920, 0, 1);
-      this.maxDate = new Date(currentYear, currentMonth, currentDate);
-
-      this.formSingUp = this.fb.group({
-        id                : [ null ],
-        nome              : [ null, [Validators.required, Validators.minLength(2)] ],
-        email             : [ null, [Validators.email, Validators.required] ],
-        senha             : [ null, [Validators.required, Validators.minLength(6), Validators.maxLength(60)] ],
-        data              : [ null, [Validators.required, Validators.min(1), Validators.max(31)] ],
-        genero            : [ null, Validators.required ],
-        compartilharDados : [ false ]
-      });
+      this.getInfo();
+      this.setForm();
 
       this.politicaEtermos.valueChanges.subscribe(v => {
         if (!v) {
@@ -45,15 +33,36 @@ export class CadastroComponent {
 
   }
 
-  onSubmit(valueForm) {
+  getInfo() {
+    const currentYear = new Date().getFullYear();
+    const currentMonth = new Date().getMonth();
+    const currentDate = new Date().getDate();
 
-    let pessoa: PessoaModel = new PessoaModel(valueForm);
-    this.cadastroService.setPessoa(pessoa);
+    this.minDate = new Date(1920, 0, 1);
+    this.maxDate = new Date(currentYear, currentMonth, currentDate);
+  }
 
-    if (this.cadastroService.getPessoas()) {
-      alert("Cadastrado realizado com sucesso!")
-      this.formSingUp.reset('');
-    }
+  setForm() {
+    this.formSingUp = this.fb.group({
+      id                : [ null ],
+      nome              : [ null, [Validators.required, Validators.minLength(2)] ],
+      email             : [ null, [Validators.email, Validators.required] ],
+      senha             : [ null, [Validators.required, Validators.minLength(6), Validators.maxLength(60)] ],
+      data              : [ null, [Validators.required, Validators.min(1), Validators.max(31)] ],
+      genero            : [ null, Validators.required ],
+      compartilharDados : [ false ]
+    });
+  }
+
+  onSubmit(formValue: PessoaModel) {
+
+    this.cadastroService.createUser(formValue).subscribe(
+      (succ) => {
+        alert(succ.message);
+        this.router.navigate(['/login']);
+      }
+    )
+
   }
 
   MaiorQue18Anos(): boolean {
