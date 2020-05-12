@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormUserService } from './service/form-user.service';
 import { PessoaModel } from 'src/app/model/pessoa-model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -20,6 +20,7 @@ export class FormUserComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private router: Router,
     private activatedRoute: ActivatedRoute,
     private formUserService: FormUserService) {
 
@@ -60,6 +61,19 @@ export class FormUserComponent implements OnInit {
       genero            : [ this.user.genero, Validators.required ],
       compartilharDados : [ this.user.compartilharDados ]
     });
+  }
+
+  onSubmit(formValue: PessoaModel) {
+    this.formUserService.editUser(formValue).subscribe(
+      (succ) => {
+        this.router.navigate(['/listUser']);
+        alert(succ.message);
+      }
+    );
+  }
+
+  cancel() {
+    this.router.navigate(['/listUser']);
   }
 
 }
