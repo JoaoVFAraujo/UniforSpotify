@@ -7,6 +7,7 @@ import {DuvidasComponent} from 'src/app/body/duvidas/duvidas.component';
 import { CadastroComponent } from './body/cadastro/cadastro.component';
 import { FormUserComponent } from './body/form-user/form-user.component';
 import { ListUserComponent } from './body/list-user/list-user.component';
+import { LoginComponent } from './body/login/login.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'playlists', component: PlaylistsComponent },
   { path: 'musicas/:musicId', component: MusicasComponent },
   { path: 'registerUser/:userId', component: FormUserComponent },
-  { path: 'listUser', component: ListUserComponent }
+  { path: 'listUser', component: ListUserComponent },
+  { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({

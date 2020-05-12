@@ -51,7 +51,7 @@ export class InterceptorService implements HttpInterceptor {
                 let token = '';
                 for (var i = 80; i > 0; --i) token += (Math.floor(Math.random()*256)).toString(16);
                 
-                return of(new HttpResponse({ body: {status: 200, token: token, idUser: this.listUsers[indexUser].id} }));
+                return of(new HttpResponse({ body: {status: 200, message: 'Logado com sucesso', object: { token: token, idUser: this.listUsers[indexUser].id }} }));
             } else {
                 return of(new HttpResponse({ body: {status: 404, message: 'Usuário não encontrado'} }));
             }

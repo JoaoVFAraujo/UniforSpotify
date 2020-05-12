@@ -32,6 +32,7 @@ import { ListUserComponent } from './body/list-user/list-user.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
+import { LoginComponent } from './body/login/login.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { MatIconModule } from '@angular/material/icon';
     MusicasComponent,
     ImgPlaylistsComponent,
     ListUserComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
