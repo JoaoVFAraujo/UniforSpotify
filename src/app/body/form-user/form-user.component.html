@@ -3,47 +3,43 @@
     <div>
       <mat-form-field class="m-t-10 itemFull">
         <mat-label>Nome</mat-label>
-        <input matInput>
+        <input matInput [formControl]="formEditUser.get('nome')" required>
       </mat-form-field>
     </div>
 
     <div>
       <mat-form-field class="m-t-10 itemFull">
         <mat-label>E-mail</mat-label>
-        <input matInput>
-      </mat-form-field>
-    </div>
-
-    <div>
-      <mat-form-field class="m-t-10 itemFull">
-        <mat-label>Confirmar E-mail</mat-label>
-        <input matInput>
+        <input matInput [formControl]="formEditUser.get('email')" required>
       </mat-form-field>
     </div>
 
     <div>
       <mat-form-field class="m-t-10 itemFull">
         <mat-label>Senha</mat-label>
-        <input matInput>
+        <input matInput [formControl]="formEditUser.get('senha')" type="password" required>
       </mat-form-field>
     </div>
 
     <div>
       <mat-form-field class="m-t-10 itemFull">
         <mat-label>Data de Nascimento</mat-label>
-        <input matInput>
-        <!-- 
+        <input matInput [formControl]="formEditUser.get('data')" [min]="minDate" [max]="maxDate" [matDatepicker]="picker" readonly (click)="picker.open()">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>  -->
-
+        <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
     </div>
 
     <div class="m-t-10 itemFull">
-      <mat-label>Gênero</mat-label>
-      <mat-radio-button value="m" class="m-r-15">Masculino</mat-radio-button>
-      <mat-radio-button value="f" class="m-r-15">Feminino</mat-radio-button>
-      <mat-radio-button value="any">Outro</mat-radio-button>
+      <mat-radio-group [formControl]="formEditUser.get('genero')" required>
+        <mat-radio-button value="m" class="m-r-15">Masculino</mat-radio-button>
+        <mat-radio-button value="f" class="m-r-15">Feminino</mat-radio-button>
+        <mat-radio-button value="any">Outro</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <div class="m-t-15 text-center">
+      <button mat-raised-button color="primary" type="submit">Editar</button>
     </div>
   </form>
 </div>

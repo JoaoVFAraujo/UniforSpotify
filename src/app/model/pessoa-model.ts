@@ -1,11 +1,11 @@
 export class PessoaModel {
-    id?: number;
-    nome?: string;
-    email?: string;
-    senha?: string;
-    data?: Date;
-    genero?: string;
-    compartilharDados?: Boolean;
+    id: number;
+    nome: string;
+    email: string;
+    senha: string;
+    data: Date;
+    genero: string;
+    compartilharDados: Boolean;
 
     constructor(obj?: PessoaModel){
         this.id                 = obj ? obj.id                  : null;

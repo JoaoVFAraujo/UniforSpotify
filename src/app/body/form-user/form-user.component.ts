@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormUserService } from './service/form-user.service';
 import { PessoaModel } from 'src/app/model/pessoa-model';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-user',
@@ -12,23 +13,53 @@ export class FormUserComponent implements OnInit {
 
   userId: string;
   user: PessoaModel;
+  formEditUser: FormGroup;
+
+  minDate: Date;
+  maxDate: Date;
 
   constructor(
+    private fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private formUserService: FormUserService) {
 
-      this.userId = this.activatedRoute.snapshot.params.userId;
+      this.getInfo();
+      this.getUser();
+      this.setForm();
 
-      this.formUserService.getUserById(this.userId).subscribe(
-        (succ) => {
-          this.user = succ.object;
-        }
-      );
-
-      console.log(this.user);
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  getInfo() {
+    this.userId = this.activatedRoute.snapshot.params.userId;
+
+    const currentYear = new Date().getFullYear();
+    const currentMonth = new Date().getMonth();
+    const currentDate = new Date().getDate();
+
+    this.minDate = new Date(1920, 0, 1);
+    this.maxDate = new Date(currentYear, currentMonth, currentDate);
+  }
+
+  getUser() {
+    this.formUserService.getUserById(this.userId).subscribe(
+      (succ) => {
+        this.user = succ.object;
+      }
+    );
+  }
+
+  setForm() {
+    this.formEditUser = this.fb.group({
+      id                : [ this.user.id ],
+      nome              : [ this.user.nome, Validators.required ],
+      email             : [ this.user.email, [Validators.required, Validators.email] ],
+      senha             : [ this.user.senha, Validators.required ],
+      data              : [ this.user.data, Validators.required ],
+      genero            : [ this.user.genero, Validators.required ],
+      compartilharDados : [ this.user.compartilharDados ]
+    });
   }
 
 }
