@@ -85,7 +85,9 @@ export class InterceptorService implements HttpInterceptor {
 
             this.playList.forEach(element => {
                 element.musicas.forEach(music => {
-                    musics.push(music);
+                    if (musics.findIndex(v => v.id === music.id) === -1) {
+                        musics.push(music);
+                    }
                 });
             });
 

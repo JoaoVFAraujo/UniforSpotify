@@ -9,6 +9,7 @@ import { FormUserComponent } from './body/form-user/form-user.component';
 import { ListUserComponent } from './body/list-user/list-user.component';
 import { LoginComponent } from './body/login/login.component';
 import { AuthGuard } from './core/auth.guard';
+import { AddPlaylistComponent } from './body/PlaylistAdd/component/add-playlist/add-playlist.component';
 
 const routes: Routes = [
   { 
@@ -45,6 +46,11 @@ const routes: Routes = [
   {
     path: 'listUser',
     component: ListUserComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'addPlaylist',
+    component: AddPlaylistComponent,
     canActivate: [AuthGuard]
   },
   {

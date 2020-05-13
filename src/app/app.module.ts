@@ -33,6 +33,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './body/login/login.component';
+import { AddPlaylistComponent } from './body/PlaylistAdd/component/add-playlist/add-playlist.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { LoginComponent } from './body/login/login.component';
     ImgPlaylistsComponent,
     ListUserComponent,
     LoginComponent,
+    AddPlaylistComponent,
   ],
   imports: [
     BrowserModule,
