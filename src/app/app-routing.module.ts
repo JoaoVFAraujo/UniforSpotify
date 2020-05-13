@@ -8,17 +8,49 @@ import { CadastroComponent } from './body/cadastro/cadastro.component';
 import { FormUserComponent } from './body/form-user/form-user.component';
 import { ListUserComponent } from './body/list-user/list-user.component';
 import { LoginComponent } from './body/login/login.component';
+import { AuthGuard } from './core/auth.guard';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'duvidas', component: DuvidasComponent },
-  { path: 'cadastro', component: CadastroComponent },
-  { path: 'playlists', component: PlaylistsComponent },
-  { path: 'musicas/:musicId', component: MusicasComponent },
-  { path: 'registerUser/:userId', component: FormUserComponent },
-  { path: 'listUser', component: ListUserComponent },
-  { path: 'login', component: LoginComponent }
+  { 
+    path: 'home',
+    component: HomeComponent
+  },
+  {
+    path: '', redirectTo: '/home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'duvidas',
+    component: DuvidasComponent
+  },
+  {
+    path: 'cadastro',
+    component: CadastroComponent
+  },
+  {
+    path: 'playlists',
+    component: PlaylistsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'musicas/:musicId',
+    component: MusicasComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'registerUser/:userId',
+    component: FormUserComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'listUser',
+    component: ListUserComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+   }
 ];
 
 @NgModule({

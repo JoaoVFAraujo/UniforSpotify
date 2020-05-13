@@ -36,6 +36,10 @@ export class LoginComponent implements OnInit {
         if (succ.status === 200) {
           alert(succ.message);
           this.router.navigate(['/playlists']);
+
+          sessionStorage.setItem('token', succ.object.token);
+          sessionStorage.setItem('idUser', succ.object.idUser);
+
         } else {
           alert(succ.message);
         }
