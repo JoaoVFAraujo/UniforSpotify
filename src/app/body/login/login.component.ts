@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   setForm() {
     this.formSingIn = this.fb.group({
       email: [ null, [Validators.required, Validators.email] ],
-      senha: [ null, Validators.required ]
+      senha: [ null, [Validators.required, Validators.minLength(6), Validators.maxLength(60)] ]
     });
   }
 
