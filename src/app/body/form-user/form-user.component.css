@@ -5,9 +5,31 @@
     padding-bottom: 5%;
 }
 
-a {
-    color: #1DB954;
+.header {
+    overflow: hidden;
+    width: 100%;
+}
+
+.header a {
+    float: left;
+    color: rgb(30,215,96);
+    text-shadow: rgba(0,0,0, 0.2);
+    text-align: center;
+    padding: 12px;
     text-decoration: none;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    line-height: 25px;
+    border-radius: 4px;
+    margin-left: 5px;
+    cursor:pointer;
+    transition: 0.5s;
+    padding-top: 8%;
+}
+
+.header a:hover {
+    color: rgb(6, 137, 53);
+    text-shadow: rgba(0,0,0, 0.2);    
 }
 
 .itemFull {

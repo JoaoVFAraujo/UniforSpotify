@@ -4,8 +4,6 @@
     padding-bottom: 5%;
 }
 
-
-
 h1 {
     Font: 40px Roboto, sans-serif;
     background-color: rgba(76, 83, 78, 0.479);
@@ -19,8 +17,6 @@ h1 {
 
 .header-usuario {
     overflow: hidden;
-   
-    padding: 10px 10px;
     width: 100%;
 }
 
