@@ -106,8 +106,12 @@ export class AddPlaylistComponent implements OnInit {
           console.log("Probleman na comunicação");
         }
       }
-    )
+    );
   }
 
+  logout() {
+    sessionStorage.clear();
+    this.router.navigate(['']);
+  }
 
 }

@@ -11,6 +11,7 @@ import { LoginComponent } from './body/login/login.component';
 import { AuthGuard } from './core/auth.guard';
 import { AddPlaylistComponent } from './body/PlaylistAdd/component/add-playlist/add-playlist.component';
 import { EditPlaylistComponent } from './body/edit-playlist/edit-playlist.component';
+import { MyPlaylistComponent } from './body/my-playlist/my-playlist.component';
 
 const routes: Routes = [
   { 
@@ -57,10 +58,15 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
-   },
-   {
+  },
+  {
     path: 'editPlaylist/:playlistId',
     component: EditPlaylistComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'myPlaylist',
+    component: MyPlaylistComponent,
     canActivate: [AuthGuard]
   },
 ];

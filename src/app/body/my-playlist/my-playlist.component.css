@@ -1,0 +1,42 @@
+.body {
+    background: rgb(0,0,0,1);
+    padding-top: 8%;
+    padding-bottom: 5%;
+}
+
+h1 {
+    Font: 40px Roboto, sans-serif;
+    background-color: rgba(76, 83, 78, 0.479);
+    color: white;
+    text-align: center;
+    float: center;
+    height: 70px;
+    line-height: 70px;
+    letter-spacing: 2px;
+}
+
+.header-usuario {
+    overflow: hidden;
+    width: 100%;
+}
+
+.header-usuario a {
+    float: left;
+    color: rgb(30,215,96);    
+    text-shadow: rgba(0,0,0, 0.2);
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    line-height: 25px;
+    border-radius: 4px;
+    margin-left: 5px;
+    cursor:pointer;
+    transition: 0.5s;
+}
+
+.header-usuario a:hover {
+    color: rgb(255,255,255);
+    text-shadow: rgba(0,0,0, 0.2);    
+  }

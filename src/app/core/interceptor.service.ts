@@ -37,7 +37,7 @@ export class InterceptorService implements HttpInterceptor {
                 return of(new HttpResponse({ body: {status: 200, message: 'Usuário editado com sucesso', object: this.listUsers[indexUser]} }));
             }
 
-        } else if (request.method === "GET" && request.url.indexOf('getUser') > -1) {
+        } else if (request.method === "GET" && request.url.indexOf('getUser/') > -1) {
             const idUser = JSON.parse(request.url.replace("http://localhost:4200/getUser/", ""));
             const indexUser = this.listUsers.findIndex(u => u.id === idUser);
 
@@ -74,7 +74,7 @@ export class InterceptorService implements HttpInterceptor {
                 return of(new HttpResponse({ body: {status: 200, message: 'Playlist editado com sucesso', object: this.playList[indexPlaylist]} }));
             }
 
-        } else if (request.method === "GET" && request.url.indexOf('getPlayList') > -1) {
+        } else if (request.method === "GET" && request.url.indexOf('getPlayList/') > -1) {
             const idPlaylist = JSON.parse(request.url.replace("http://localhost:4200/getPlayList/", ""));
             const indexPlaylist = this.playList.findIndex(u => u.id === idPlaylist);
 
@@ -93,7 +93,13 @@ export class InterceptorService implements HttpInterceptor {
 
             return of(new HttpResponse({ body: {status: 200, message: 'Listagem de todas músicas', object: musics} }));
 
-        } 
+        }  else if (request.method === "GET" && request.url.indexOf('getPlayListByIdUser/') > -1) {
+            const idUser = JSON.parse(request.url.replace("http://localhost:4200/getPlayListByIdUser/", ""));
+            const playlist = this.playList.filter(v => +v.idUser === +idUser);
+
+            return of(new HttpResponse({ body: {status: 200, message: 'Playlist de usuário encontra', object: playlist} }))
+
+        }
         
         return next.handle(request);
     }

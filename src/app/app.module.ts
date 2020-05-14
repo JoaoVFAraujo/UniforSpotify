@@ -35,6 +35,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './body/login/login.component';
 import { AddPlaylistComponent } from './body/PlaylistAdd/component/add-playlist/add-playlist.component';
 import { EditPlaylistComponent } from './body/edit-playlist/edit-playlist.component';
+import { MyPlaylistComponent } from './body/my-playlist/my-playlist.component';
+import { MyImagePlaylistComponent } from './body/my-playlist/component/my-image-playlist/my-image-playlist.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { EditPlaylistComponent } from './body/edit-playlist/edit-playlist.compon
     LoginComponent,
     AddPlaylistComponent,
     EditPlaylistComponent,
+    MyPlaylistComponent,
+    MyImagePlaylistComponent,
   ],
   imports: [
     BrowserModule,

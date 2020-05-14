@@ -1,0 +1,17 @@
+<div class="body">
+        <!--a playlist será inserida na pagina home no header-->
+        <div class="header-usuario">
+            <a routerLink="/playlists">Todas Playlists</a>
+            <a routerLink="/myPlaylist">Suas Playlists</a>
+            <a routerLink="/addPlaylist">Adicionar Playlist</a>
+            <a routerLink="/listUser">Listagem de usuários</a>
+            <a (click)="logout()">Logout</a>
+        </div>
+    
+        <h1><strong>Grandes playlists para melhorar seu dia</strong></h1>
+    
+        <!--listas imagens playlists-->
+        <div>
+            <app-my-image-playlist></app-my-image-playlist>
+        </div>
+    </div>
