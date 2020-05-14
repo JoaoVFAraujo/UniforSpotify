@@ -4,6 +4,8 @@ import { PlaylistModel } from 'src/app/model/playlist-model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AddPlaylistService } from '../../service/add-playlist.service';
 import { Router } from '@angular/router';
+import { MatTableDataSource } from '@angular/material/table';
+import { SelectionModel } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-add-playlist',
@@ -16,6 +18,10 @@ export class AddPlaylistComponent implements OnInit {
   listPlay : PlaylistModel[];
   formAddPlaylist: FormGroup;
 
+  displayedColumns: string[] = ['select', 'title', 'album'];
+  dataSource = new MatTableDataSource<any>();
+  selection = new SelectionModel<any>(true, []);
+
   constructor(
     private fb: FormBuilder,
     private service: AddPlaylistService,
@@ -24,6 +30,28 @@ export class AddPlaylistComponent implements OnInit {
   ngOnInit(): void {
     this.getMusic();
     this.creatForm();
+
+    this.selection.changed.subscribe(
+      () => {
+        this.formAddPlaylist.get('musicas').setValue(this.selection.selected)
+      }
+    );
+  }
+
+  /** Whether the number of selected elements matches the total number of rows. */
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
+  }
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  masterToggle() {
+    if (this.isAllSelected()) {
+      this.selection.clear()
+    } else {
+      this.dataSource.data.forEach(row => this.selection.select(row));
+    }
   }
 
   getMusic(){
@@ -33,6 +61,7 @@ export class AddPlaylistComponent implements OnInit {
         if (succ.status === 200) {
           // pegando o objeto da resposta e guardando no meu array;
           this.listMusics = succ.object;
+          this.dataSource = new MatTableDataSource<any>(succ.object);
         } else {
           // Nunca vai da problema na comunição porque não tem backend de verdade kk;
           console.log("Probleman na comunicação");
@@ -52,13 +81,19 @@ export class AddPlaylistComponent implements OnInit {
   }
 
   onSubmit(valueForm: PlaylistModel) {
-      
+
     this.service.addPlaylist(valueForm).subscribe(
       (succ) => {
         alert(succ.message);
         this.router.navigate(['playlists']);
       }
-    )
+    );
+
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   getPlaylist(){

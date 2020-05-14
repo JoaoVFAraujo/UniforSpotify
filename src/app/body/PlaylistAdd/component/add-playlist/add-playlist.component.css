@@ -32,6 +32,10 @@
     text-shadow: rgba(0,0,0, 0.2);    
 }
 
+table {
+    width: 100%;
+}
+
 .itemFull {
     width: 100%;
 }
