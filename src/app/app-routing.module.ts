@@ -10,6 +10,7 @@ import { ListUserComponent } from './body/list-user/list-user.component';
 import { LoginComponent } from './body/login/login.component';
 import { AuthGuard } from './core/auth.guard';
 import { AddPlaylistComponent } from './body/PlaylistAdd/component/add-playlist/add-playlist.component';
+import { EditPlaylistComponent } from './body/edit-playlist/edit-playlist.component';
 
 const routes: Routes = [
   { 
@@ -56,7 +57,12 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
-   }
+   },
+   {
+    path: 'editPlaylist/:playlistId',
+    component: EditPlaylistComponent,
+    canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({

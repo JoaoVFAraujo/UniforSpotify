@@ -34,6 +34,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './body/login/login.component';
 import { AddPlaylistComponent } from './body/PlaylistAdd/component/add-playlist/add-playlist.component';
+import { EditPlaylistComponent } from './body/edit-playlist/edit-playlist.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { AddPlaylistComponent } from './body/PlaylistAdd/component/add-playlist/
     ListUserComponent,
     LoginComponent,
     AddPlaylistComponent,
+    EditPlaylistComponent,
   ],
   imports: [
     BrowserModule,

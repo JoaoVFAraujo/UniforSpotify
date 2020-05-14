@@ -1,6 +1,13 @@
 <div class="body">
     <div class='body-playlist'>
-        <h1>Playlist {{ playlistSelect.nome }}</h1>
+        <h1>
+            Playlist {{ playlistSelect.nome }}
+            <button mat-fab color="primary"
+                [routerLink]="['/editPlaylist', playlistSelect.id]"
+                *ngIf="+idUser === +playlistSelect.idUser">
+                <mat-icon>edit</mat-icon>
+            </button>
+        </h1>
         <div class=image>
             <img [src]="playlistSelect.image">
         </div>

@@ -2,20 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { MusicaModel } from 'src/app/model/musica-model';
 import { PlaylistModel } from 'src/app/model/playlist-model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AddPlaylistService } from '../../service/add-playlist.service';
-import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
+import { Router, ActivatedRoute } from '@angular/router';
+import { EditPlayListService } from './service/edit-play-list.service';
 
 @Component({
-  selector: 'app-add-playlist',
-  templateUrl: './add-playlist.component.html',
-  styleUrls: ['./add-playlist.component.css']
+  selector: 'app-edit-playlist',
+  templateUrl: './edit-playlist.component.html',
+  styleUrls: ['./edit-playlist.component.css']
 })
-export class AddPlaylistComponent implements OnInit {
+export class EditPlaylistComponent implements OnInit {
 
-  listPlay : PlaylistModel[];
-  formAddPlaylist: FormGroup;
+  listPlay: PlaylistModel[];
+  formEditPlaylist: FormGroup;
+
+  idPlaylist: number;
+  playList: PlaylistModel;
 
   displayedColumns: string[] = ['select', 'title', 'album'];
   dataSource = new MatTableDataSource<MusicaModel>();
@@ -23,16 +26,21 @@ export class AddPlaylistComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private service: AddPlaylistService,
-    private router: Router) { }
+    private service: EditPlayListService,
+    private activatedRoute :ActivatedRoute,
+    private router: Router) {
+
+      this.idPlaylist = +this.activatedRoute.snapshot.params.playlistId;
+  }
 
   ngOnInit(): void {
     this.getMusic();
+    this.getPlaylistById();
     this.creatForm();
 
     this.selection.changed.subscribe(
       () => {
-        this.formAddPlaylist.get('musicas').setValue(this.selection.selected)
+        this.formEditPlaylist.get('musicas').setValue(this.selection.selected)
       }
     );
   }
@@ -65,28 +73,26 @@ export class AddPlaylistComponent implements OnInit {
           console.log("Probleman na comunicação");
         }
       }
-    )
+    );
   } 
 
-  creatForm(){
-    this.formAddPlaylist = this.fb.group({
-      id      : [ null ],
-      nome    : [ null, [Validators.required, Validators.minLength(4)] ],
+  creatForm() {
+    this.formEditPlaylist = this.fb.group({
+      id      : [ this.playList.id ],
+      nome    : [ this.playList.nome, [Validators.required, Validators.minLength(4)] ],
       image   : [ 'assets/imgs/playlist/brasil360.jpg' ],
-      idUser  : [ sessionStorage.getItem('idUser') ],
-      musicas : [ null, Validators.required],
+      idUser  : [ this.playList.idUser ],
+      musicas : [ this.playList.musicas, Validators.required],
     });
   }
 
   onSubmit(valueForm: PlaylistModel) {
-
-    this.service.addPlaylist(valueForm).subscribe(
+    this.service.editPlaylist(valueForm).subscribe(
       (succ) => {
         alert(succ.message);
         this.router.navigate(['playlists']);
       }
     );
-
   }
 
   applyFilter(event: Event) {
@@ -94,19 +100,32 @@ export class AddPlaylistComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  getPlaylist(){
-    this.service.listAllPlaylist().subscribe(
+  getPlaylistById(){
+    this.service.getPlaylistById(this.idPlaylist).subscribe(
       (succ) => {
          // Verificando se o status da comunicação é 200 OK;
         if (succ.status === 200) {
           // pegando o objeto da resposta e guardando no meu array;
-          this.listPlay = succ.object; 
+          this.playList = succ.object;
+
+          succ.object.musicas.forEach(musica => {
+            this.selection.select(musica);
+          });
+
         } else {
           // Nunca vai da problema na comunição porque não tem backend de verdade kk;
           console.log("Probleman na comunicação");
         }
       }
-    )
+    );
+  }
+
+  isSelected(musica: MusicaModel) {
+    if (this.selection.selected.findIndex(v => v.id === musica.id) > -1) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 
