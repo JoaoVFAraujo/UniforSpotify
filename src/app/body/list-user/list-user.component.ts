@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { PessoaModel } from 'src/app/model/pessoa-model';
 import { ListUserService } from './service/list-user-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-user',
@@ -16,7 +17,9 @@ export class ListUserComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   
-  constructor(private listUserService: ListUserService) {
+  constructor(
+    private listUserService: ListUserService,
+    private router: Router) {
 
     this.listUserService.listAllUsers().subscribe(
       (succ) => {
@@ -27,6 +30,11 @@ export class ListUserComponent implements OnInit {
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
+  }
+
+  logout() {
+    sessionStorage.clear();
+    this.router.navigate(['']);
   }
 
 }

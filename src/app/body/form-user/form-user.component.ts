@@ -76,4 +76,9 @@ export class FormUserComponent implements OnInit {
     this.router.navigate(['/listUser']);
   }
 
+  logout() {
+    sessionStorage.clear();
+    this.router.navigate(['']);
+  }
+
 }

@@ -128,5 +128,9 @@ export class EditPlaylistComponent implements OnInit {
     }
   }
 
+  logout() {
+    sessionStorage.clear();
+    this.router.navigate(['']);
+  }
 
 }
