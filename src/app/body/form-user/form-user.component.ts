@@ -50,7 +50,7 @@ export class FormUserComponent implements OnInit {
           id                : [ this.user.id ],
           nome              : [ this.user.nome, Validators.required ],
           email             : [ this.user.email, [Validators.required, Validators.email] ],
-          senha             : [ this.user.senha, Validators.required ],
+          senha             : [ null ],
           data              : [ this.user.data, Validators.required ],
           genero            : [ this.user.genero, Validators.required ],
           compartilharDados : [ this.user.compartilharDados ]

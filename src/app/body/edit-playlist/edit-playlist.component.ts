@@ -22,7 +22,8 @@ export class EditPlaylistComponent implements OnInit {
 
   displayedColumns: string[] = ['select', 'title', 'album'];
   dataSource = new MatTableDataSource<MusicaModel>();
-  selection = new SelectionModel<MusicaModel>(true, []);
+  selection = [];
+  length: number;
 
   constructor(
     private fb: FormBuilder,
@@ -36,36 +37,61 @@ export class EditPlaylistComponent implements OnInit {
   ngOnInit(): void {
     this.getMusic();
 
-    this.selection.changed.subscribe(
-      (element) => {
-        this.formEditPlaylist.get('musicas').setValue(this.selection.selected);
-      }
-    );
+    this.formEditPlaylist.valueChanges.subscribe(v => {
+      console.log(this.formEditPlaylist);
+      console.log(v);
+    })
   }
 
-  /** Whether the number of selected elements matches the total number of rows. */
-  isAllSelected() {
-    const numSelected = this.selection.selected.length;
-    const numRows = this.dataSource.data.length;
-    return numSelected === numRows;
-  }
+  // isAllSelected() {
+  //   const numSelected = this.selection.length;
+  //   const numRows = this.length;
+  //   console.log(this.selection.length, this.length)
+  //   return numSelected === numRows;
+  // }
 
-  /** Selects all rows if they are not all selected; otherwise clear selection. */
-  masterToggle() {
-    if (this.isAllSelected()) {
-      this.selection.clear()
+  // masterToggle() {
+  //   if (this.isAllSelected()) {
+  //     this.selection = [];
+  //   } else {
+  //     this.playList.musicas.forEach(musica => {
+  //       this.selectedRow(musica);
+  //     });
+  //   }
+  // }
+
+  selectedRow(row) {
+    const indexRow = this.selection.findIndex(v => v.title === row.title);
+
+    if (indexRow > -1) {
+      this.selection.splice(indexRow, 1);
     } else {
-      this.dataSource.data.forEach(row => this.selection.select(row));
+      this.selection.push(row);
+    }
+
+    this.formEditPlaylist.get('musicas').setValue(this.selection);
+  }
+
+  selectedAll(row) {
+    const indexRow = this.selection.findIndex(v => v.title === row.title);
+
+    if (indexRow === -1) {
+      this.selection.push(row);
+    }
+  }
+
+  verifyChecked(row) {
+    if (this.selection.findIndex(v => v.title === row.title) > -1) {
+      return true;
     }
   }
 
   getMusic(){
     this.service.listAllMusic().subscribe(
       (succ) => {
-        // pegando o objeto da resposta e guardando no meu array;
         this.dataSource = new MatTableDataSource<any>(succ.body);
         this.getPlaylistById();
-
+        this.length = succ.body.length;
       }
     );
   }
@@ -95,22 +121,14 @@ export class EditPlaylistComponent implements OnInit {
             nome    : [ this.playList.nome, [Validators.required, Validators.minLength(4)] ],
             image   : [ 'assets/imgs/playlist/brasil360.jpg' ],
             userId  : [ this.playList.userId ],
-            musicas : [ this.playList.musicas, Validators.required],
+            musicas : [ this.selection ],
           });
 
           succ.body.musicas.forEach(musica => {
-            this.selection.toggle(musica);
+            this.selectedRow(musica);
           });
       }
     );
-  }
-
-  isSelected(musica: MusicaModel) {
-    if (this.selection.selected.findIndex(v => v.id === musica.id) > -1) {
-      return true;
-    } else {
-      return false;
-    }
   }
 
   logout() {
