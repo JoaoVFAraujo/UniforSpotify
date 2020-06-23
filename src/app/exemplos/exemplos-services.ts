@@ -14,7 +14,7 @@ export class ExemplosComponent {
         // Cadastrando usuário;
         const user = JSON.stringify({ nome: "joao", email: "joao@spotify.com.br", senha: "joao", genero: "m", compartilharDados: false, data: new Date(1990, 0, 1) });
 
-        this.httpClient.post('http://localhost:4200/user', user).subscribe(
+        this.httpClient.post('http://localhost:8080/user', user).subscribe(
             (succ: any) => {
                 console.log("Cadastro de usuário: ", succ);
             }
@@ -25,7 +25,7 @@ export class ExemplosComponent {
         // Editando usuário, é só passar o id dele no json;
         const editUser = JSON.stringify({ id: 2, nome: "davi", email: "davi@spotify.com.br", senha: "davi", genero: "m", compartilharDados: false, data: new Date(1990, 0, 1) });
 
-        this.httpClient.post('http://localhost:4200/user', editUser).subscribe(
+        this.httpClient.post('http://localhost:8080/user', editUser).subscribe(
             (succ: any) => {
                 console.log("Editando usuário: ", succ);
             }
@@ -34,7 +34,7 @@ export class ExemplosComponent {
         // --------------------------------------------------------------------------------------
 
         // Buscando todos usuários;
-        this.httpClient.get('http://localhost:4200/users').subscribe(
+        this.httpClient.get('http://localhost:8080/user').subscribe(
             (succ: any) => {
                 console.log("Buscando todos usuários: ", succ);
             }
@@ -43,7 +43,7 @@ export class ExemplosComponent {
         // --------------------------------------------------------------------------------------
 
         // Buscando usuário específico por ID;
-        this.httpClient.get('http://localhost:4200/getUser/2').subscribe(
+        this.httpClient.get('http://localhost:8080/getUser/2').subscribe(
             (succ: any) => {
                 console.log("Buscando usuário específico: ", succ);
             }
@@ -54,7 +54,7 @@ export class ExemplosComponent {
         // Login
         const login = JSON.stringify({ email: "admin@spotify.com.br", senha: "admin" });
 
-        this.httpClient.post('http://localhost:4200/login', login).subscribe(
+        this.httpClient.post('http://localhost:8080/login', login).subscribe(
             (succ: any) => {
                 console.log("Login: ", succ);
             }
@@ -63,9 +63,9 @@ export class ExemplosComponent {
         // --------------------------------------------------------------------------------------
 
         // Cadastrando playList;
-        const playlist = JSON.stringify({ nome: "PlayList de teste", idUser: 2, image: "", musicas: [] });
+        const playlist = JSON.stringify({ nome: "PlayList de teste", userId: 2, image: "", musicas: [] });
 
-        this.httpClient.post('http://localhost:4200/playList', playlist).subscribe(
+        this.httpClient.post('http://localhost:8080/playlist', playlist).subscribe(
             (succ: any) => {
                 console.log("Cadastrando playList: ", succ);
             }
@@ -74,9 +74,9 @@ export class ExemplosComponent {
         // --------------------------------------------------------------------------------------
 
         // Editando playList;
-        const editPlaylist = JSON.stringify({ id: 4, nome: "PlayList teste de edição", idUser: 2, image: "", musicas: [] });
+        const editPlaylist = JSON.stringify({ id: 4, nome: "PlayList teste de edição", userId: 2, image: "", musicas: [] });
 
-        this.httpClient.post('http://localhost:4200/playList', editPlaylist).subscribe(
+        this.httpClient.post('http://localhost:8080/playlist', editPlaylist).subscribe(
             (succ: any) => {
                 console.log("Editando playList: ", succ);
             }
@@ -85,7 +85,7 @@ export class ExemplosComponent {
         // --------------------------------------------------------------------------------------
 
         // Buscando todos playList;
-        this.httpClient.get('http://localhost:4200/playList').subscribe(
+        this.httpClient.get('http://localhost:8080/playlist').subscribe(
             (succ: any) => {
                 console.log("Buscando todas playlist: ", succ);
             }
@@ -94,7 +94,7 @@ export class ExemplosComponent {
         // --------------------------------------------------------------------------------------
 
         // Buscando playlist específico por ID;
-        this.httpClient.get('http://localhost:4200/getPlayList/4').subscribe(
+        this.httpClient.get('http://localhost:8080/getPlayList/4').subscribe(
             (succ: any) => {
                 console.log("Buscando playlist específico: ", succ);
             }
@@ -103,7 +103,7 @@ export class ExemplosComponent {
         // --------------------------------------------------------------------------------------
 
         // Buscando todas musicas;
-        this.httpClient.get('http://localhost:4200/musics').subscribe(
+        this.httpClient.get('http://localhost:8080/music').subscribe(
             (succ: any) => {
                 console.log("Buscando todas musicas: ", succ);
             }

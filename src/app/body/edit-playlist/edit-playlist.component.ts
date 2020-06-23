@@ -35,12 +35,10 @@ export class EditPlaylistComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMusic();
-    this.getPlaylistById();
-    this.creatForm();
 
     this.selection.changed.subscribe(
-      () => {
-        this.formEditPlaylist.get('musicas').setValue(this.selection.selected)
+      (element) => {
+        this.formEditPlaylist.get('musicas').setValue(this.selection.selected);
       }
     );
   }
@@ -64,26 +62,12 @@ export class EditPlaylistComponent implements OnInit {
   getMusic(){
     this.service.listAllMusic().subscribe(
       (succ) => {
-         // Verificando se o status da comunicação é 200 OK;
-        if (succ.status === 200) {
-          // pegando o objeto da resposta e guardando no meu array;
-          this.dataSource = new MatTableDataSource<any>(succ.object);
-        } else {
-          // Nunca vai da problema na comunição porque não tem backend de verdade kk;
-          console.log("Probleman na comunicação");
-        }
+        // pegando o objeto da resposta e guardando no meu array;
+        this.dataSource = new MatTableDataSource<any>(succ.body);
+        this.getPlaylistById();
+
       }
     );
-  } 
-
-  creatForm() {
-    this.formEditPlaylist = this.fb.group({
-      id      : [ this.playList.id ],
-      nome    : [ this.playList.nome, [Validators.required, Validators.minLength(4)] ],
-      image   : [ 'assets/imgs/playlist/brasil360.jpg' ],
-      idUser  : [ this.playList.idUser ],
-      musicas : [ this.playList.musicas, Validators.required],
-    });
   }
 
   onSubmit(valueForm: PlaylistModel) {
@@ -103,19 +87,20 @@ export class EditPlaylistComponent implements OnInit {
   getPlaylistById(){
     this.service.getPlaylistById(this.idPlaylist).subscribe(
       (succ) => {
-         // Verificando se o status da comunicação é 200 OK;
-        if (succ.status === 200) {
           // pegando o objeto da resposta e guardando no meu array;
-          this.playList = succ.object;
+          this.playList = succ.body;
 
-          succ.object.musicas.forEach(musica => {
-            this.selection.select(musica);
+          this.formEditPlaylist = this.fb.group({
+            id      : [ this.playList.id ],
+            nome    : [ this.playList.nome, [Validators.required, Validators.minLength(4)] ],
+            image   : [ 'assets/imgs/playlist/brasil360.jpg' ],
+            userId  : [ this.playList.userId ],
+            musicas : [ this.playList.musicas, Validators.required],
           });
 
-        } else {
-          // Nunca vai da problema na comunição porque não tem backend de verdade kk;
-          console.log("Probleman na comunicação");
-        }
+          succ.body.musicas.forEach(musica => {
+            this.selection.toggle(musica);
+          });
       }
     );
   }

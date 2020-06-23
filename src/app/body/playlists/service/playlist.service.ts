@@ -1,4 +1,4 @@
-import { HttpErrorResponse, HttpClient } from '@angular/common/http';
+import { HttpErrorResponse, HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { throwError, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -14,11 +14,20 @@ export class PlaylistService {
 
     // Função para listar todos as playlist;
     listAllPlaylist(): Observable<any> {
-        return this.httpClient.get('http://localhost:4200/playList')
+        return this.httpClient.get('http://localhost:8080/playlist', this.fullJson())
             .pipe(
                 catchError(this.handleError)
             );
     }
+
+    fullJson(): any {
+        return {
+            headers: new HttpHeaders({
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8;application/json',
+                'Content-Type': 'application/json'
+            })
+        };
+      }
 
     // Este codigo esta na documentação do Angular na parte de serviços;
     private handleError(error: HttpErrorResponse) {

@@ -33,16 +33,12 @@ export class LoginComponent implements OnInit {
 
     this.loginService.login(formValue).subscribe(
       (succ) => {
-        if (succ.status === 200) {
-          alert(succ.message);
-          this.router.navigate(['/playlists']);
+        console.log('respondeu', succ);
+        alert(succ.message);
+        this.router.navigate(['/playlists']);
 
-          sessionStorage.setItem('token', succ.object.token);
-          sessionStorage.setItem('idUser', succ.object.idUser);
-
-        } else {
-          alert(succ.message);
-        }
+        sessionStorage.setItem('token', succ.body.token);
+        sessionStorage.setItem('userId', succ.body.userId);
       }
     )
 

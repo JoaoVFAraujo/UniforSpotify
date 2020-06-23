@@ -1,19 +1,16 @@
-import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { PessoaModel } from 'src/app/model/pessoa-model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CadastroService {
-  
-  constructor(public httpClient: HttpClient) { }
+export class MusicasService {
 
-  createUser(user: PessoaModel): Observable<any> {
-    const body = JSON.stringify(user);
+  constructor(private httpClient: HttpClient) { }
 
-    return this.httpClient.post("http://localhost:8080/user", body, this.fullJson());
+  getPlaylistById(id: number): Observable<any> {
+    return this.httpClient.get('http://localhost:8080/playlist/'+id, this.fullJson());
   }
 
   fullJson(): any {

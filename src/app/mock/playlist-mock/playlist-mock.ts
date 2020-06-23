@@ -4,7 +4,7 @@ export const PlayListMock: PlaylistModel[] = [
     {
       id: 1,
       nome: "Brasil 360",
-      idUser: 1,
+      userId: 1,
       image: "assets/imgs/playlist/brasil360.jpg",
       musicas: [
         {
@@ -33,7 +33,7 @@ export const PlayListMock: PlaylistModel[] = [
     {
       id: 2,
       nome: "Reggaeton 2020",
-      idUser: 1,
+      userId: 1,
       image: "assets/imgs/playlist/reggaeton2020.jpg",
       musicas: [
         {
@@ -63,7 +63,7 @@ export const PlayListMock: PlaylistModel[] = [
       id: 3,
       nome: "",
       image: "assets/imgs/playlist/clubQueens.jpg",
-      idUser: 1,
+      userId: 1,
       musicas: [
         // {
         //   id: 7,   
@@ -79,7 +79,7 @@ export const PlayListMock: PlaylistModel[] = [
       id: 4,
       nome: "",
       image: "assets/imgs/playlist/sofrenciaSertaneja.jpg",
-      idUser: 1,
+      userId: 1,
       musicas: [
         // {
         //   id: 8,   
@@ -95,7 +95,7 @@ export const PlayListMock: PlaylistModel[] = [
       id: 5,
       nome: "",
       image: "assets/imgs/playlist/rockBrazuca.jpg",
-      idUser: 1,
+      userId: 1,
       musicas: [
         // {
         //   id: 9,   
@@ -111,7 +111,7 @@ export const PlayListMock: PlaylistModel[] = [
       id: 6,
       nome: "",
       image: "assets/imgs/playlist/eletroBR.jpg",
-      idUser: 1,
+      userId: 1,
       musicas: [
         // {
         //   id: 10,   
@@ -127,7 +127,7 @@ export const PlayListMock: PlaylistModel[] = [
       id: 7,
       nome: "",
       image: "assets/imgs/playlist/nerd80.jpg",
-      idUser: 1,
+      userId: 1,
       musicas: [
         // {
         //   id: 11,   
@@ -143,7 +143,7 @@ export const PlayListMock: PlaylistModel[] = [
       id: 8,
       nome: "",
       image: "assets/imgs/playlist/romantica8090.jpg",
-      idUser: 1,
+      userId: 1,
       musicas: [
         // {
         //   id: 12,   

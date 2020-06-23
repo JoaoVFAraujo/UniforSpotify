@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PlayListMock } from 'src/app/mock/playlist-mock/playlist-mock';
+import { MusicasService } from './service/musicas.service';
 
 @Component({
   selector: 'app-musicas',
@@ -11,20 +12,25 @@ export class MusicasComponent {
 
   msaapPageSizeOptions = [3];
 
-  musicId: number;
+  playlistId: number;
   playlistSelect;
   musics;
-  idUser;
+  userId;
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private musicasService: MusicasService) {
 
-    this.musicId = +this.activatedRoute.snapshot.params.musicId;
+    this.playlistId = +this.activatedRoute.snapshot.params.musicId;
 
-    this.playlistSelect = PlayListMock.filter(element => element.id == this.musicId)[0];
+    this.musicasService.getPlaylistById(this.playlistId).subscribe(
+      (succ) => {
+        this.playlistSelect = succ.body;
+        this.musics = succ.body.musicas;
+      }
+    )
 
-    this.idUser = sessionStorage.getItem('idUser');
-
-    this.musics = this.playlistSelect.musicas;
+    this.userId = sessionStorage.getItem('userId');
     
   }
 

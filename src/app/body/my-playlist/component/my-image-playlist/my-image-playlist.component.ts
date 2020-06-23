@@ -10,20 +10,13 @@ import { MyPlaylistService } from '../../service/my-playlist.service';
 export class MyImagePlaylistComponent implements OnInit {
 
   playList: PlaylistModel[] = [];
-  idUser: number = +sessionStorage.getItem('idUser');
+  userId: number = +sessionStorage.getItem('userId');
 
   constructor(private myPlaylistService: MyPlaylistService) {
 
-    this.myPlaylistService.getPlayListByIdUser(this.idUser).subscribe(
+    this.myPlaylistService.getPlayListByuserId(this.userId).subscribe(
       (succ) => {
-        // Verificando se o status da comunicação é 200 OK;
-        if (succ.status === 200) {
-          // pegando o objeto da resposta e guardando no meu array;
-          this.playList = succ.object;
-        } else {
-          // Nunca vai da problema na comunição porque não tem backend de verdade kk;
-          console.log("Probleman na comunicação");
-        }
+        this.playList = succ.body;
       }
     );
 

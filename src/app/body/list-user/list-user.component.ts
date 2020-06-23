@@ -23,7 +23,7 @@ export class ListUserComponent implements OnInit {
 
     this.listUserService.listAllUsers().subscribe(
       (succ) => {
-        this.dataSource = new MatTableDataSource<PessoaModel>(succ.object);
+        this.dataSource = new MatTableDataSource<PessoaModel>(succ.body);
       }
     );
   }

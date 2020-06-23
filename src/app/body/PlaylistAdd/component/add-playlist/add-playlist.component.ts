@@ -56,14 +56,8 @@ export class AddPlaylistComponent implements OnInit {
   getMusic(){
     this.service.listAllMusic().subscribe(
       (succ) => {
-         // Verificando se o status da comunicação é 200 OK;
-        if (succ.status === 200) {
           // pegando o objeto da resposta e guardando no meu array;
-          this.dataSource = new MatTableDataSource<any>(succ.object);
-        } else {
-          // Nunca vai da problema na comunição porque não tem backend de verdade kk;
-          console.log("Probleman na comunicação");
-        }
+          this.dataSource = new MatTableDataSource<any>(succ.body);
       }
     )
   } 
@@ -73,7 +67,7 @@ export class AddPlaylistComponent implements OnInit {
       id      : [ null ],
       nome    : [ null, [Validators.required, Validators.minLength(4)] ],
       image   : [ 'assets/imgs/playlist/brasil360.jpg' ],
-      idUser  : [ sessionStorage.getItem('idUser') ],
+      userId  : [ sessionStorage.getItem('userId') ],
       musicas : [ null, Validators.required],
     });
   }
@@ -97,14 +91,8 @@ export class AddPlaylistComponent implements OnInit {
   getPlaylist(){
     this.service.listAllPlaylist().subscribe(
       (succ) => {
-         // Verificando se o status da comunicação é 200 OK;
-        if (succ.status === 200) {
           // pegando o objeto da resposta e guardando no meu array;
-          this.listPlay = succ.object; 
-        } else {
-          // Nunca vai da problema na comunição porque não tem backend de verdade kk;
-          console.log("Probleman na comunicação");
-        }
+          this.listPlay = succ.body;
       }
     );
   }

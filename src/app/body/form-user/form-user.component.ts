@@ -26,7 +26,6 @@ export class FormUserComponent implements OnInit {
 
       this.getInfo();
       this.getUser();
-      this.setForm();
 
   }
 
@@ -46,21 +45,18 @@ export class FormUserComponent implements OnInit {
   getUser() {
     this.formUserService.getUserById(this.userId).subscribe(
       (succ) => {
-        this.user = succ.object;
+        this.user = succ.body;
+        this.formEditUser = this.fb.group({
+          id                : [ this.user.id ],
+          nome              : [ this.user.nome, Validators.required ],
+          email             : [ this.user.email, [Validators.required, Validators.email] ],
+          senha             : [ this.user.senha, Validators.required ],
+          data              : [ this.user.data, Validators.required ],
+          genero            : [ this.user.genero, Validators.required ],
+          compartilharDados : [ this.user.compartilharDados ]
+        });
       }
     );
-  }
-
-  setForm() {
-    this.formEditUser = this.fb.group({
-      id                : [ this.user.id ],
-      nome              : [ this.user.nome, Validators.required ],
-      email             : [ this.user.email, [Validators.required, Validators.email] ],
-      senha             : [ this.user.senha, Validators.required ],
-      data              : [ this.user.data, Validators.required ],
-      genero            : [ this.user.genero, Validators.required ],
-      compartilharDados : [ this.user.compartilharDados ]
-    });
   }
 
   onSubmit(formValue: PessoaModel) {
@@ -68,6 +64,9 @@ export class FormUserComponent implements OnInit {
       (succ) => {
         this.router.navigate(['/listUser']);
         alert(succ.message);
+      },
+      (err) => {
+        console.log(err);
       }
     );
   }
